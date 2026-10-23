@@ -17,6 +17,7 @@
 <script>try{var p=(JSON.parse(localStorage.getItem('myPlannerBloom.v1'))||{}).profile||{},r=document.documentElement,m=p.mode||'auto';if(p.palette)r.dataset.pal=p.palette;r.dataset.bg=p.bg??'aurora';if(p.palette==='mid'||m==='dark'||(m==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches))r.classList.add('dark')}catch(e){}</script>
 <meta name="description" content="A calm, pink personal planner for tasks, studying, revision and weekly routines.">
 <title>My Planner — Bloom</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <style>:root{--bg:#fff7fb;--surface:#fff;--surface-2:#fff0f7;--surface-3:#ffe3ef;--pink:#e45f9f;--pink-dark:#bd3678;--pink-soft:#f8b7d4;--on-pink:#fff;--text:#422437;--muted:#7a5d6f;--line:#f2dbe7;--green:#479b79;--yellow:#ca9139;--red:#d45a6c;--shadow:0 12px 34px rgba(154,70,115,.08);--radius:22px;color-scheme:light}
 html[data-pal=lav]{--pink:#8b5cf6;--pink-dark:#6a3fd1;--pink-soft:#cdb8fb}
 html[data-pal=lav]:not(.dark){--bg:#faf7ff;--surface-2:#f3edff;--surface-3:#e8defe;--line:#e6dcf7;--text:#2d2342;--muted:#665b80}
@@ -256,7 +257,7 @@ html.dark[data-pal=cocoa]{--bg:#17110d;--surface:#231a14;--surface-2:#33261d;--s
 </aside>
 <div class="more-sheet" id="more-sheet" aria-label="More pages"><button type="button" data-view="timetable">▦ Timetable</button><button type="button" data-view="revision">✎ Revision</button><button type="button" data-view="stats">↗ Stats</button><button type="button" data-view="notes">♡ Journal</button><button type="button" data-view="care">❀ Self-care</button><button type="button" data-view="guide">? Guide</button><button type="button" data-view="settings">⚙ Settings</button></div>
 <main class="main">
-  <header class="topbar"><div><div class="date-line" id="header-date">YOUR PERSONAL SPACE</div><h1 class="page-heading" id="page-heading">A little progress, every day.</h1></div><div class="top-actions"><button class="btn btn-primary" id="quick-add"><b>＋</b><span>New task</span></button><div class="avatar" title="You got this">♡</div></div></header>
+  <header class="topbar"><div><div class="date-line" id="header-date">YOUR PERSONAL SPACE</div><h1 class="page-heading" id="page-heading">A little progress, every day.</h1></div><div class="top-actions"><button class="btn" id="sync-chip" type="button" title="Account & sync">☁ <span id="sync-chip-text">Sign in</span></button><button class="btn btn-primary" id="quick-add"><b>＋</b><span>New task</span></button><div class="avatar" title="You got this">♡</div></div></header>
 
   <section class="view active" id="view-dashboard">
     <div class="notice backup-banner hidden" id="backup-banner" role="status"></div>
@@ -365,6 +366,14 @@ html.dark[data-pal=cocoa]{--bg:#17110d;--surface:#231a14;--surface-2:#33261d;--s
       <article class="panel settings-card"><h3>🎨 Appearance</h3><p>Pick a colour theme and choose how light or dark the planner looks.</p><div class="field"><label>Colour theme</label><div class="pal-row" id="pal-row"><button type="button" class="pal-btn" data-pal=""><i class="sw" style="--a:#c93a82;--b:#ffeaf4"></i><span>🎀 Bubblegum</span></button><button type="button" class="pal-btn" data-pal="lav"><i class="sw" style="--a:#7647e0;--b:#f1eaff"></i><span>🦋 Lilac</span></button><button type="button" class="pal-btn" data-pal="peach"><i class="sw" style="--a:#c4502a;--b:#fff0e3"></i><span>🍑 Peach</span></button><button type="button" class="pal-btn" data-pal="mint"><i class="sw" style="--a:#1a7d5b;--b:#e9fbf3"></i><span>🍃 Mint</span></button><button type="button" class="pal-btn" data-pal="sky"><i class="sw" style="--a:#2468c9;--b:#eaf4ff"></i><span>☁️ Sky</span></button><button type="button" class="pal-btn" data-pal="honey"><i class="sw" style="--a:#946508;--b:#fff7de"></i><span>🐝 Honey</span></button><button type="button" class="pal-btn" data-pal="cocoa"><i class="sw" style="--a:#8a4a30;--b:#f6efe9"></i><span>☕ Cocoa</span></button><button type="button" class="pal-btn" data-pal="mid"><i class="sw" style="--a:#7aa2ff;--b:#0c1124"></i><span>🌙 Midnight</span></button></div></div><div class="field-row" style="margin-top:14px"><div class="field"><label for="mode-select">Brightness</label><select class="input" id="mode-select"><option value="auto">Match my device</option><option value="light">Light</option><option value="dark">Dark</option></select></div><div class="field"><label for="week-start">Week starts on</label><select class="input" id="week-start"><option value="1">Monday</option><option value="0">Sunday</option><option value="6">Saturday</option></select></div></div></article>
       <article class="panel settings-card" id="look-card"><h3>✨ Backgrounds &amp; effects</h3><p>Add a moving or patterned background and floating effects. Pick a colour theme above, then mix and match.</p><div class="look-h">Background</div><div class="opt-grid" id="bg-grid"></div><div class="look-h">Effect</div><div class="opt-grid" id="fx-grid"></div><p class="tiny muted" style="margin:12px 0 0">Effects switch off automatically if your device asks for reduced motion.</p></article>
       <article class="panel settings-card"><h3>📚 Subjects &amp; weekly targets</h3><p>Rename subjects, set weekly hour targets, or add your own. Your history keeps working.</p><div id="subject-editor"></div><div class="add-subject"><input class="input" id="new-subject" maxlength="24" placeholder="Add a subject" aria-label="New subject name"><button class="btn" id="subject-add">Add</button></div></article>
+      <article class="panel settings-card" id="sync-card"><h3>☁️ Account &amp; sync</h3>
+        <p id="sync-status">Sign in to keep your planner the same on your PC and phone.</p>
+        <div id="sync-out">
+          <div class="field-row"><div class="field"><label for="sync-email">Email</label><input class="input" id="sync-email" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label for="sync-pass">Password</label><input class="input" id="sync-pass" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn btn-primary" id="sync-login" type="button">Sign in</button><button class="btn" id="sync-signup" type="button">Create account</button><button class="btn" id="sync-reset" type="button">Forgot password</button></div>
+        </div>
+        <div id="sync-in" hidden style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" id="sync-now" type="button">↻ Sync now</button><button class="btn" id="sync-logout" type="button">Sign out</button></div>
+      </article>
       <article class="panel settings-card"><h3>🔔 Daily reminder</h3><p>A gentle nudge with your tasks for the day. It works while My Planner is open in a tab or installed on your phone.</p><div class="field-row"><div class="field"><label for="rem-on">Reminder</label><select class="input" id="rem-on"><option value="0">Off</option><option value="1">On</option></select></div><div class="field"><label for="rem-time">Remind me at</label><input class="input" id="rem-time" type="time" value="18:00"></div></div><div class="settings-actions" style="margin-top:12px"><button class="btn" id="rem-test">Send a test</button></div></article>
       <article class="panel settings-card"><h3>🗓️ Calendar export</h3><p>Download your tasks, timetable and exams as an .ics file for Apple Calendar, Google Calendar or Outlook. Timed tasks get a 10-minute reminder.</p><button class="btn btn-primary" id="export-ics">↓ Export .ics</button></article>
       <article class="panel settings-card"><h3>🔒 Privacy & storage</h3><p>This rebuilt version saves data in this browser's local storage. It does not upload your tasks to a server. Anyone with access to this browser profile may be able to see your planner data.</p><p><strong>Important:</strong> browser storage is not an encrypted vault. Use device security and keep backups. Private browsing, clearing browser data, or switching browsers can remove access to local data.</p></article>
@@ -417,7 +426,8 @@ html.dark[data-pal=cocoa]{--bg:#17110d;--surface:#231a14;--surface-2:#33261d;--s
   let timerRemaining=timerTotal;
   let timerRunning=false;
   let timerIsBreak=false;
-  const saveData=()=>{ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}catch(err){if(!saveData.warned){saveData.warned=1;showToast('Changes cannot be saved in this preview. Open index.html in a normal browser tab to keep them.');}} };
+  let syncHook=null;
+  const saveData=()=>{ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));if(syncHook)syncHook();}catch(err){if(!saveData.warned){saveData.warned=1;showToast('Changes cannot be saved in this preview. Open index.html in a normal browser tab to keep them.');}} };
   const showToast=(message,undo)=>{ const node=$('#toast'); node.replaceChildren(); const s=document.createElement('span'); s.textContent=message; node.append(s); if(undo){ const b=document.createElement('button'); b.type='button'; b.className='toast-undo'; b.textContent='Undo'; b.onclick=()=>{undo();node.classList.remove('show');}; node.append(b); } node.classList.toggle('has-undo',!!undo); node.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>node.classList.remove('show'),undo?6000:2600); };
   const PRAISE=['Nice work{n} 🎀','One goal down ✨','So proud of you 🥰','You did it. Keep shining 🌟','Look at you go 💪','You put in the work and it shows 🎀','Beautiful work, one step closer 🌸','Another one checked off 🔥','Small steps, big dreams ✨','You’re making it look easy 😌','Your future self says thank you 💌','You showed up for yourself today 🎀','Gold star for you ⭐','Quietly crushing it 🌷','Every tick is a little victory 🌈','Hard work looks beautiful on you 🌹','Done and dusted 👌','Keep going, you’re doing amazing 💫','Boom. Goal smashed 💥','You deserve a little break soon 🍵'];
   const FINISH=['Every task done{n}. Rest like a queen 👑','A perfect day. You did everything 🎉','100% today. Unstoppable 🏆','The whole list is done. Go celebrate 🎊','Zero tasks left. Incredible 🌟','Champion energy. Today belongs to you 🥇'];
@@ -787,6 +797,80 @@ html.dark[data-pal=cocoa]{--bg:#17110d;--surface:#231a14;--surface-2:#33261d;--s
   $('#rem-test').addEventListener('click',()=>{if('Notification' in window&&Notification.permission==='default'){try{Notification.requestPermission().then(fireReminder);return;}catch(e){}}fireReminder();});
   setInterval(checkReminder,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkReminder();});setTimeout(checkReminder,2500);
   $$('.nav-btn').forEach(b=>{const t=b.querySelector('.nav-text');if(t)b.setAttribute('aria-label',t.textContent.trim());});
+
+  /* ===== Cloud sync (Supabase) ===== */
+  const SUPABASE_URL='https://pqevrvglgbtzzzspecem.supabase.co';
+  const SUPABASE_KEY='sb_publishable_-BbLKFokxZgDDN8qCujOuQ_hLesRyje';
+  const SYNC_KEY='myPlannerBloom.sync';
+  const syncState=(()=>{try{return Object.assign({user:null,dirty:false,remoteAt:null},JSON.parse(localStorage.getItem(SYNC_KEY)||'{}'));}catch(e){return {user:null,dirty:false,remoteAt:null};}})();
+  const saveSyncState=()=>{try{localStorage.setItem(SYNC_KEY,JSON.stringify(syncState));}catch(e){}};
+  let sb=null,sbUser=null,pushTimer=null,syncing=false,syncPaused=false;
+  const setSyncUI=(text,chip)=>{const a=$('#sync-status'),c=$('#sync-chip-text');if(a)a.textContent=text;if(c)c.textContent=chip||(sbUser?'Synced':'Sign in');const i=$('#sync-in'),o=$('#sync-out');if(i)i.hidden=!sbUser;if(o)o.hidden=!!sbUser;if(i)i.style.display=sbUser?'flex':'none';};
+  const hasRealData=()=>{const d=data;return (d.tasks&&d.tasks.length)||(d.events&&d.events.length)||(d.exams&&d.exams.length)||(d.logs&&d.logs.length)||(d.notes&&d.notes.trim())||Object.keys(d.journal||{}).length;};
+  const applyRemote=(remote,at)=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(remote));}catch(e){}data=loadData();applyTheme();renderAll();syncState.remoteAt=at;syncState.dirty=false;saveSyncState();};
+  async function pushNow(){
+    if(!sb||!sbUser||syncing||syncPaused)return;syncing=true;
+    try{
+      const at=new Date().toISOString();
+      const {error}=await sb.from('planner_data').upsert({user_id:sbUser.id,payload:data,updated_at:at});
+      if(error)throw error;
+      syncState.remoteAt=at;syncState.dirty=false;saveSyncState();setSyncUI('Signed in as '+sbUser.email+'. Last synced '+new Date().toLocaleTimeString()+'.','Synced');
+    }catch(e){console.warn(e);setSyncUI('Could not sync (will retry). '+(e.message||''),'Offline');}
+    finally{syncing=false;}
+  }
+  syncHook=()=>{if(syncPaused)return;syncState.dirty=true;saveSyncState();if(!sbUser)return;clearTimeout(pushTimer);setSyncUI(null,'Saving…');pushTimer=setTimeout(pushNow,1500);};
+  async function pullCheck(first){
+    if(!sb||!sbUser||syncing)return;
+    try{
+      const {data:row,error}=await sb.from('planner_data').select('payload,updated_at').eq('user_id',sbUser.id).maybeSingle();
+      if(error)throw error;
+      if(!row){await pushNow();return;}
+      const sameUser=syncState.user===sbUser.id;
+      if(first&&(!sameUser||syncState.remoteAt==null)){
+        // first time on this device with this account
+        if(!hasRealData()){applyRemote(row.payload,row.updated_at);syncState.user=sbUser.id;saveSyncState();setSyncUI('Signed in as '+sbUser.email+'. Your planner was loaded from the cloud.','Synced');showToast('Loaded your cloud planner ☁️');return;}
+        const useCloud=await askConfirm('This device already has planner data, and your account has a saved planner in the cloud. Use the CLOUD copy? (This replaces what is on this device — export a backup first if unsure.)','Use cloud copy');
+        if(useCloud){applyRemote(row.payload,row.updated_at);syncState.user=sbUser.id;saveSyncState();setSyncUI('Signed in as '+sbUser.email+'. Cloud copy loaded.','Synced');return;}
+        const useLocal=await askConfirm('Keep THIS DEVICE’s planner instead? It will overwrite the cloud copy for all your devices.','Keep this device & overwrite cloud');
+        if(useLocal){syncState.user=sbUser.id;await pushNow();showToast('Cloud updated from this device');return;}
+        syncPaused=true;setSyncUI('Sync paused — nothing was changed. Press “Sync now” to choose again.','Paused');return;
+      }
+      const remoteNewer=!syncState.remoteAt||new Date(row.updated_at)>new Date(syncState.remoteAt);
+      if(remoteNewer&&!syncState.dirty){
+        if(timerRunning)return;
+        applyRemote(row.payload,row.updated_at);setSyncUI('Signed in as '+sbUser.email+'. Updated from another device '+new Date().toLocaleTimeString()+'.','Synced');
+      }else if(remoteNewer&&syncState.dirty){
+        const useCloud=await askConfirm('Your planner changed on another device and also on this one. Use the CLOUD copy? (Choosing “Cancel” keeps this device’s changes and overwrites the cloud.)','Use cloud copy');
+        if(useCloud)applyRemote(row.payload,row.updated_at);else await pushNow();
+      }else if(syncState.dirty){await pushNow();}
+      else setSyncUI('Signed in as '+sbUser.email+'. Everything is up to date.','Synced');
+    }catch(e){console.warn(e);setSyncUI('Could not reach the cloud. Your data is safe on this device. '+(e.message||''),'Offline');}
+  }
+  async function onSession(session){
+    sbUser=session?session.user:null;
+    if(!sbUser){syncPaused=false;setSyncUI('Sign in to keep your planner the same on your PC and phone.','Sign in');return;}
+    syncPaused=false;setSyncUI('Signed in as '+sbUser.email+'. Syncing…','Syncing…');
+    await pullCheck(true);
+  }
+  function initSync(){
+    const chip=$('#sync-chip');if(chip)chip.addEventListener('click',()=>navigate('settings'));
+    if(!window.supabase||SUPABASE_URL.startsWith('PASTE')){setSyncUI(SUPABASE_URL.startsWith('PASTE')?'Cloud sync is not set up yet (missing Project URL).':'Cloud sync could not load (check your connection).','Sign in');}
+    else{
+      sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+      sb.auth.onAuthStateChange((ev,session)=>{if(ev==='INITIAL_SESSION'||ev==='SIGNED_IN'||ev==='SIGNED_OUT'){setTimeout(()=>onSession(session),0);}});
+      setInterval(()=>{if(!document.hidden)pullCheck(false);},30000);
+      document.addEventListener('visibilitychange',()=>{if(!document.hidden)pullCheck(false);});
+      window.addEventListener('online',()=>pullCheck(false));
+    }
+    const creds=()=>({email:($('#sync-email').value||'').trim(),password:$('#sync-pass').value||''});
+    const need=()=>{if(!sb){showToast('Cloud sync is not available right now.');return true;}return false;};
+    $('#sync-login').addEventListener('click',async()=>{if(need())return;const c=creds();if(!c.email||!c.password){showToast('Enter your email and password');return;}const {error}=await sb.auth.signInWithPassword(c);if(error)showToast(error.message);else $('#sync-pass').value='';});
+    $('#sync-signup').addEventListener('click',async()=>{if(need())return;const c=creds();if(!c.email||c.password.length<6){showToast('Enter an email and a password of at least 6 characters');return;}const {data:r,error}=await sb.auth.signUp({email:c.email,password:c.password,options:{emailRedirectTo:location.origin+location.pathname}});if(error)showToast(error.message);else if(r.session){$('#sync-pass').value='';}else showToast('Check your email to confirm, then sign in 💌');});
+    $('#sync-reset').addEventListener('click',async()=>{if(need())return;const e=(creds().email);if(!e){showToast('Type your email first');return;}const {error}=await sb.auth.resetPasswordForEmail(e,{redirectTo:location.origin+location.pathname});showToast(error?error.message:'Password reset email sent 💌');});
+    $('#sync-logout').addEventListener('click',async()=>{if(sb)await sb.auth.signOut();showToast('Signed out. Your planner stays on this device.');});
+    $('#sync-now').addEventListener('click',async()=>{syncPaused=false;if(syncState.dirty)await pushNow();await pullCheck(syncState.remoteAt==null);});
+  }
+  initSync();
   applyTheme();
   renderAll();
   restoreTimer();
