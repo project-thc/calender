@@ -800,7 +800,7 @@ html.dark[data-pal=cocoa]{--bg:#17110d;--surface:#231a14;--surface-2:#33261d;--s
 
   /* ===== Cloud sync (Supabase) ===== */
   const SUPABASE_URL='https://pqevrvglgbtzzzspecem.supabase.co';
-  const SUPABASE_KEY='sb_publishable_-BbLKFokxZgDDN8qCujOuQ_hLesRyje';
+  const SUPABASE_KEY='sb_publishable_EsBFM8EH0tdKBoB1ma1C6A_0gNDp1O6';
   const SYNC_KEY='myPlannerBloom.sync';
   const syncState=(()=>{try{return Object.assign({user:null,dirty:false,remoteAt:null},JSON.parse(localStorage.getItem(SYNC_KEY)||'{}'));}catch(e){return {user:null,dirty:false,remoteAt:null};}})();
   const saveSyncState=()=>{try{localStorage.setItem(SYNC_KEY,JSON.stringify(syncState));}catch(e){}};
