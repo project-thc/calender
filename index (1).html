@@ -391,6 +391,79 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
 .st-actions{position:relative;z-index:4;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}.st-btn{border:0;border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;background:#fff;color:#2a1a4d;cursor:pointer}.st-btn.ghost{background:rgba(255,255,255,.2);color:#fff}
 .story .bottle svg{filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
 .snap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.snap:last-child{border-bottom:0}.snap small{display:block;color:var(--muted);font-size:12px}
+
+/* ===== Month goals & month stats ===== */
+.runway{margin-bottom:18px;padding:16px 20px}
+.rw{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center}
+.rw-big{display:flex;align-items:center;gap:10px}.rw-big b{font-size:36px;font-weight:900;letter-spacing:-1.6px;color:var(--pink-dark);line-height:1}.rw-big span{font-size:12px;color:var(--muted);font-weight:700;max-width:118px;line-height:1.3}
+.rw-mid{padding-top:16px;min-width:0}.rw-track{position:relative;height:10px;border-radius:99px;background:var(--surface-3)}.rw-track>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pink-soft),var(--pink))}
+.rw-now{position:absolute;top:-18px;transform:translateX(-50%);font-size:11px;font-weight:850;color:var(--pink-dark);white-space:nowrap}
+.rw-ends{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px;font-weight:700}
+.rw-side{text-align:right}.rw-side b{font-size:23px;font-weight:900;letter-spacing:-.8px;display:block;line-height:1.1}.rw-side span{font-size:11px;color:var(--muted);font-weight:700}
+.rw-note{margin:12px 0 0;font-size:12px;color:var(--muted)}
+.goal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.goal,.gm{--gc:var(--pink)}
+.goal.ok,.goal.done,.gm.ok,.gm.done{--gc:var(--green)}.goal.behind,.gm.behind{--gc:var(--yellow)}.goal.missed,.gm.missed{--gc:var(--red)}
+.goal{border:1px solid var(--line);background:var(--surface);border-radius:17px;padding:14px;display:grid;align-content:space-between;gap:12px;min-width:0;transition:border-color .15s}
+.goal:hover{border-color:var(--pink-soft)}
+.goal-top{display:flex;gap:10px;align-items:flex-start}.goal-ico{width:34px;height:34px;flex:0 0 34px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;font-size:16px}
+.goal-main{flex:1;min-width:0}.goal-title{font-weight:800;font-size:13px;overflow-wrap:anywhere;line-height:1.3}.goal-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
+.goal-badge{font-size:10.5px;font-weight:850;padding:3px 8px;border-radius:99px;white-space:nowrap;color:var(--gc);background:color-mix(in srgb,var(--gc) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--gc) 35%,transparent)}
+.goal-bar{position:relative;height:8px;border-radius:99px;background:var(--surface-3)}.goal-bar>i{display:block;height:100%;border-radius:99px;background:var(--gc);transition:width .4s var(--ease,ease)}.goal-bar>b{position:absolute;top:-3px;bottom:-3px;width:2px;border-radius:2px;background:var(--muted);opacity:.55}
+.goal-bar.sm{height:6px}
+.goal-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.goal-label{font-size:12px;font-weight:750}.goal-label em{font-style:normal;color:var(--muted);font-weight:700;margin-left:4px}.goal-act{display:flex;align-items:center;gap:2px;margin-left:auto}
+.goal-due{margin-top:12px;padding:12px;border:1px dashed var(--pink-soft);border-radius:15px;background:var(--surface-2)}.goal-due>strong{display:block;font-size:12px;margin-bottom:4px}
+.gm{padding:9px 0;border-bottom:1px solid var(--line);display:grid;gap:6px}.gm:last-of-type{border-bottom:0}
+.gm-top{display:flex;justify-content:space-between;gap:10px;font-size:12px}.gm-top b{font-weight:780;overflow-wrap:anywhere}.gm-top em{font-style:normal;color:var(--muted);white-space:nowrap;font-weight:750}.gm-sub{font-size:11px;color:var(--muted)}
+.gm-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:4px}.gm-head b{font-size:16px;letter-spacing:-.4px;color:var(--pink-dark)}.gm-head span{font-size:12px;color:var(--muted);font-weight:700}
+.dot.g{background:#8f6bd8}
+.sm-nav{display:flex;gap:6px;align-items:center}#cal-goals .panel-head .btn{white-space:nowrap;flex:0 0 auto}
+.sm-sec{margin-top:22px}.sm-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.sm-h h4{margin:0;font-size:13px}.sm-h span{font-size:11px;color:var(--muted)}
+.mbars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;height:132px}
+.mb{display:grid;grid-template-rows:minmax(0,1fr) 13px;gap:4px;height:100%;min-width:0}.mb .tr{display:flex;align-items:flex-end;justify-content:center}
+.mb .tr i{display:block;width:100%;max-width:20px;background:linear-gradient(0deg,var(--pink),var(--pink-soft));border-radius:5px 5px 0 0;transition:height .5s cubic-bezier(.2,.8,.2,1)}
+.mb .tr i.z{height:3px!important;background:var(--surface-3);border-radius:2px}
+.mb.fut .tr i{opacity:.3}.mb.now .tr i{box-shadow:0 0 0 2px var(--pink-soft)}
+.mb small{font-size:9.5px;color:var(--muted);text-align:center;line-height:13px;white-space:nowrap;overflow:visible}.mb.now small{color:var(--pink-dark);font-weight:850}
+.sb-row{display:grid;grid-template-columns:minmax(80px,120px) minmax(0,1fr) 46px;gap:10px;align-items:center;font-size:12px;margin-bottom:10px}.sb-n{display:flex;align-items:center;gap:7px;font-weight:750;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sb-n i{width:8px;height:8px;border-radius:50%;flex:0 0 8px}.sb-v{text-align:right;color:var(--muted);font-weight:800}
+@media(max-width:600px){.rw{grid-template-columns:1fr;gap:12px}.rw-side{text-align:left;display:flex;align-items:baseline;gap:8px}.goal-grid{grid-template-columns:1fr}.runway{padding:14px 15px}.mbars{gap:2px}}
+#snd-seg{display:flex;flex-wrap:wrap;gap:6px;border:0;border-radius:0;overflow:visible}#snd-seg .seg-btn{border:1px solid var(--line);border-radius:10px;background:var(--surface)}#snd-seg .seg-btn.on{border-color:var(--btn,var(--pink))}
+
+/* ===== Tidy layout: calmer, fewer repeats ===== */
+.page-heading{font-size:clamp(17px,1.8vw,20px);font-weight:700;color:var(--muted);letter-spacing:-.01em}
+.view-toolbar .section-sub{display:none}
+.view-toolbar .section-title{font-size:clamp(24px,2.6vw,30px)}
+.avatar,#tasks-add{display:none!important}
+#view-dashboard .hero{padding:20px 26px}#view-dashboard .hero p,#view-dashboard .hero-art{display:none}#view-dashboard .hero h2{font-size:clamp(22px,2.4vw,28px);margin-bottom:12px}
+.panel-head p{font-size:12px}
+.view>*+*{margin-top:18px}
+
+/* ===== Phone polish ===== */
+.tt-days{display:none}
+@media(max-width:600px){
+  .tt-days{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}.tt-days::-webkit-scrollbar{display:none}
+  .tt-days button{flex:1 1 0;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 4px;font-weight:800;font-size:12px;color:var(--muted);display:grid;gap:1px;justify-items:center}
+  .tt-days button small{font-size:9.5px;font-weight:700;white-space:nowrap}
+  .tt-days button.on{background:var(--pink);border-color:var(--pink);color:var(--on-pink,#fff)}
+  .week-grid{display:block;overflow:visible}.day-column{display:none;min-height:0}.day-column.show{display:block}
+  .cc-cups{display:grid!important;grid-template-columns:repeat(4,max-content)!important;gap:8px 10px;justify-content:start}
+  .glasses{display:grid!important;grid-template-columns:repeat(4,max-content)!important;gap:8px 10px;justify-content:start}
+  .wp{gap:14px}.wt{flex-wrap:nowrap;gap:14px;align-items:center}.wt .bottle{width:64px!important;flex:none}.wt-c{flex:1 1 0}
+  .plant{flex:none;width:100%;padding:8px 8px 10px}.plant svg{max-width:112px}
+  .focus-tips .tip p{display:none}
+  #recap .panel-head{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+/* ===== Journal paper ===== */
+textarea.notes-area{--ml:30px;font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:17px;line-height:32px;min-height:420px;resize:vertical;
+  padding:14px 22px 22px calc(var(--ml) + 16px);border-radius:18px;border:1px solid var(--line);color:var(--text);caret-color:var(--pink);
+  background-color:color-mix(in srgb,var(--surface) 90%,var(--pink-soft));
+  background-image:linear-gradient(90deg,transparent calc(var(--ml) - 1px),color-mix(in srgb,var(--pink) 38%,transparent) calc(var(--ml) - 1px),color-mix(in srgb,var(--pink) 38%,transparent) calc(var(--ml) + 1px),transparent calc(var(--ml) + 1px)),repeating-linear-gradient(transparent 0,transparent 31px,color-mix(in srgb,var(--pink-soft) 55%,transparent) 31px,color-mix(in srgb,var(--pink-soft) 55%,transparent) 32px);
+  background-position:0 0,0 14px;background-repeat:no-repeat,repeat;background-attachment:local;
+  box-shadow:inset 0 2px 8px color-mix(in srgb,var(--pink) 7%,transparent);transition:border-color .2s,box-shadow .2s}
+textarea.notes-area::placeholder{font-style:italic;color:var(--muted);opacity:.75}
+textarea.notes-area:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px color-mix(in srgb,var(--pink) 16%,transparent),inset 0 2px 8px color-mix(in srgb,var(--pink) 7%,transparent)}
+@media(max-width:600px){textarea.notes-area{--ml:20px;font-size:16px;min-height:340px;padding-right:16px}}
 </style>
 <link rel="manifest" href="manifest.webmanifest"></head>
 <body>
@@ -432,6 +505,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     <div class="td-grid"><div class="stack"><article class="panel"><div class="panel-head"><div><h3>Your top 3</h3><p>Start here. The rest can wait.</p></div><button class="link-btn" data-goto="tasks">All tasks →</button></div><div class="panel-body"><div id="td-tasks" class="task-list"></div><p class="tiny muted" id="td-more" style="margin:10px 0 0"></p></div></article>
     <article class="panel"><div class="panel-head"><div><h3>Study plan</h3><p>A gentle target for today</p></div><button class="link-btn" data-goto="focus">Focus →</button></div><div class="panel-body" id="td-plan"></div></article></div>
     <div class="stack"><article class="panel" id="td-care"><div class="panel-head"><div><h3>Today’s care</h3><p>Water, sleep and how you feel</p></div><button class="link-btn" data-goto="care">Self-care →</button></div><div class="panel-body dc" id="tc-body"></div></article>
+    <article class="panel" id="td-goals"><div class="panel-head"><div><h3>Month goals</h3><p>From here to the end of the month</p></div><button class="link-btn" data-goto="calendar">Calendar →</button></div><div class="panel-body" id="td-goals-body"></div></article>
     <article class="panel"><div class="panel-body td-foot"><div><div class="tiny muted" style="font-weight:800">BACKUP</div><div id="td-backup" style="font-size:13px"></div></div><button type="button" class="btn btn-small" data-action="backup-now">Back up now</button><button type="button" class="btn btn-small btn-primary" id="install-btn" hidden>Install app</button></div></article></div></div>
   </section>
   <section class="view" id="view-dashboard">
@@ -445,13 +519,14 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
       <div class="stat-card"><div class="stat-top"><span>Weekly task rate</span><span class="stat-icon">♡</span></div><div class="stat-value" id="stat-rate">0%</div><div class="stat-foot">Progress, not perfection</div></div>
     </div>
     <div class="content-grid"><div class="stack">
-      <article class="panel" id="dash-care"><div class="panel-head"><div><h3>Today’s care</h3><p>Water, sleep and how you feel</p></div><button class="link-btn" data-goto="care">Self-care →</button></div><div class="panel-body dc" id="dc-body"></div></article>
+      <article class="panel hidden" id="dash-care"><div class="panel-head"><div><h3>Today’s care</h3><p>Water, sleep and how you feel</p></div><button class="link-btn" data-goto="care">Self-care →</button></div><div class="panel-body dc" id="dc-body"></div></article>
       <article class="panel hidden" id="schedule-panel"><div class="panel-head"><div><h3>Today's schedule</h3><p>Your timed plans in order</p></div><button class="link-btn" data-goto="timetable">Timetable →</button></div><div class="panel-body"><div id="today-schedule" class="sched"></div></div></article>
       <article class="panel"><div class="panel-head"><div><h3>Today's priorities</h3><p>Your next small wins</p></div><button class="link-btn" data-goto="tasks">All tasks →</button></div><div class="panel-body"><div id="today-tasks" class="task-list"></div></div></article>
       <article class="panel" id="recap"><div class="panel-head"><div><h3>Your week in review</h3><p>The last 7 days, all in one place</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn btn-small btn-primary" data-story>✨ Play my week</button><button type="button" class="btn btn-small" id="recap-copy">Copy summary</button></div></div><div class="panel-body"><div class="rc-grid" id="rc-grid"></div></div></article>
-      <article class="panel"><div class="panel-head"><div><h3>This week’s progress</h3><p>Share of tasks you completed each day</p></div></div><div class="panel-body" id="week-chart" role="img" aria-label="Weekly task completion chart"></div></article>
-      <article class="panel"><div class="panel-head"><div><h3>Your week at a glance</h3><p id="week-subtitle">A gentle overview of your week</p></div><button class="link-btn" data-goto="timetable">Open timetable →</button></div><div class="panel-body"><div class="week-mini" id="week-mini"></div></div></article>
+      <article class="panel hidden" id="dash-weekchart"><div class="panel-head"><div><h3>This week’s progress</h3><p>Share of tasks you completed each day</p></div></div><div class="panel-body" id="week-chart" role="img" aria-label="Weekly task completion chart"></div></article>
+      <article class="panel hidden" id="dash-weekglance"><div class="panel-head"><div><h3>Your week at a glance</h3><p id="week-subtitle">A gentle overview of your week</p></div><button class="link-btn" data-goto="timetable">Open timetable →</button></div><div class="panel-body"><div class="week-mini" id="week-mini"></div></div></article>
     </div><div class="stack">
+      <article class="panel" id="dash-goals"><div class="panel-head"><div><h3>Month goals</h3><p>From here to the end of the month</p></div><button class="link-btn" data-goto="calendar">Calendar →</button></div><div class="panel-body" id="dash-goals-body"></div></article>
       <article class="panel"><div class="panel-head"><div><h3>Revision progress</h3><p>Study hours you've logged this week</p></div><button class="link-btn" data-goto="revision">Details →</button></div><div class="panel-body"><div class="subject-list" id="dashboard-subjects"></div></div></article>
       <article class="panel"><div class="panel-head"><div><h3>Coming up</h3><p>Your next exam dates</p></div><button class="link-btn" data-goto="revision">Manage →</button></div><div class="panel-body"><div id="dashboard-exams" class="exam-list"></div></div></article>
     </div></div>
@@ -463,14 +538,16 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   </section>
 
   <section class="view" id="view-calendar">
-    <div class="view-toolbar"><div><h2 class="section-title">Calendar</h2><p class="section-sub">See tasks, exams and your weekly routine in one place. Drag a task onto a day to move it.</p></div><button class="btn btn-primary" data-action="new-task-day">＋ Add task</button></div>
-    <div class="content-grid"><article class="panel"><div class="panel-body"><div class="cal-bar"><button class="btn btn-small" id="cal-prev" aria-label="Previous month">‹</button><h3 id="cal-title" aria-live="polite"></h3><button class="btn btn-small" id="cal-next" aria-label="Next month">›</button><button class="btn btn-small" id="cal-today">Today</button></div><div class="cal-wd" id="cal-wd"></div><div class="cal-grid" id="cal-grid"></div><div class="cal-legend"><span><i class="dot t"></i>Tasks</span><span><i class="dot x"></i>Exams</span><span><i class="dot e"></i>Timetable</span></div></div></article>
+    <div class="view-toolbar"><div><h2 class="section-title">Calendar</h2><p class="section-sub">See tasks, exams, goals and your weekly routine in one place. Drag a task onto a day to move it.</p></div><div class="toolbar-controls"><button class="btn" data-action="new-goal">🎯 Add goal</button><button class="btn btn-primary" data-action="new-task-day">＋ Add task</button></div></div>
+    <article class="panel runway" id="cal-runway" aria-label="Days left in the month"></article>
+    <div class="content-grid"><article class="panel"><div class="panel-body"><div class="cal-bar"><button class="btn btn-small" id="cal-prev" aria-label="Previous month">‹</button><h3 id="cal-title" aria-live="polite"></h3><button class="btn btn-small" id="cal-next" aria-label="Next month">›</button><button class="btn btn-small" id="cal-today">Today</button></div><div class="cal-wd" id="cal-wd"></div><div class="cal-grid" id="cal-grid"></div><div class="cal-legend"><span><i class="dot t"></i>Tasks</span><span><i class="dot x"></i>Exams</span><span><i class="dot e"></i>Timetable</span><span><i class="dot g"></i>Month-end goals</span></div></div></article>
     <article class="panel"><div class="panel-head"><div><h3 id="cal-day-title">Today</h3><p>Everything planned for this day</p></div></div><div class="panel-body"><div id="cal-day-list" class="task-list"></div></div></article></div>
+    <article class="panel" id="cal-goals" style="margin-top:18px"><div class="panel-head"><div><h3 id="cg-title">Goals</h3><p id="cg-sub"></p></div><button class="btn btn-small btn-primary" data-action="new-goal">＋ New goal</button></div><div class="panel-body"><div id="cg-list" class="goal-grid"></div></div></article>
   </section>
 
   <section class="view" id="view-timetable">
     <div class="view-toolbar"><div><h2 class="section-title">Weekly timetable</h2><p class="section-sub">Protect your time for school, study and life.</p></div><button class="btn btn-primary" id="event-add">＋ Add time block</button></div>
-        <div class="panel"><div class="panel-head"><div><h3>Your recurring week</h3><p>Time blocks repeat every week. Add or remove them as your routine changes.</p></div></div><div class="panel-body"><div id="week-grid" class="week-grid"></div></div></div>
+        <div class="panel"><div class="panel-head"><div><h3>Your recurring week</h3><p>Time blocks repeat every week. Add or remove them as your routine changes.</p></div></div><div class="panel-body"><div class="tt-days" id="tt-days" role="tablist" aria-label="Day of the week"></div><div id="week-grid" class="week-grid"></div></div></div>
   </section>
 
   <section class="view" id="view-revision">
@@ -485,7 +562,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   <section class="view" id="view-focus">
     <div class="view-toolbar"><div><h2 class="section-title">Focus room</h2><p class="section-sub">One thing at a time. You can do more than you think.</p></div></div>
     <div class="focus-layout"><article class="panel focus-card"><h3>Let's make a little progress</h3><p>Pick a subject, set your timer, and begin.</p><div class="field" style="max-width:220px;margin:0 auto 4px;text-align:left"><label for="focus-subject">What are you working on?</label><select id="focus-subject" class="input"></select></div><div class="field" style="max-width:220px;margin:8px auto 0;text-align:left"><label for="focus-task">Link to a task (optional)</label><select id="focus-task" class="input"></select></div><div class="timer-ring" id="timer-ring" style="--timer-progress:0%"><div class="timer-center"><div class="timer-time" id="timer-time">25:00</div><div class="timer-mode" id="timer-mode">Focus session</div></div></div><div class="fp" aria-hidden="true"><span id="fp-e">🌰</span></div><div class="fp-garden" id="fp-garden"></div><div class="preset-row"><button class="preset active" data-minutes="25">25 min</button><button class="preset" data-minutes="45">45 min</button><button class="preset" data-minutes="50">50 min</button><button class="preset" data-minutes="5" data-break="true">5 min break</button></div><div class="timer-controls"><button class="btn btn-primary" id="timer-start">▶ Start focus</button><button class="btn" id="timer-reset">↺ Reset</button></div><p class="tiny muted" id="timer-hint" style="margin:14px 0 0">When a focus timer finishes, your session is added to study history.</p></article>
-      <aside class="panel focus-side"><h3>A softer way to focus 🌷</h3><div class="focus-tips"><div class="tip"><span class="tip-icon">📵</span><div><strong>Put distractions away</strong><p>Silence notifications and keep only what you need open.</p></div></div><div class="tip"><span class="tip-icon">📝</span><div><strong>Choose one clear task</strong><p>“Solve five exercises” is easier to start than “study Maths.”</p></div></div><div class="tip"><span class="tip-icon">💧</span><div><strong>Take a real break</strong><p>Stand up, stretch, drink water, and let your mind reset.</p></div></div><div class="tip"><span class="tip-icon">🌱</span><div><strong>Done is better than perfect</strong><p>A focused 15 minutes still counts. Start small if you need to.</p></div></div></div><div class="sound-card"><div class="tiny muted" style="font-weight:800">CALM SOUNDS</div><div class="seg" id="snd-seg" role="group" aria-label="Calm sound"><button type="button" class="seg-btn on" data-snd="off">Off</button><button type="button" class="seg-btn" data-snd="rain">Rain</button><button type="button" class="seg-btn" data-snd="waves">Waves</button><button type="button" class="seg-btn" data-snd="hum">Soft hum</button></div><label class="sr-only" for="snd-vol">Volume</label><input type="range" id="snd-vol" min="0" max="100" value="40"></div><div style="margin-top:14px;padding:14px;border-radius:15px;background:var(--surface-2)"><div class="tiny muted">TOTAL FOCUS TIME THIS WEEK</div><div class="metric-big" id="focus-week-total">0 min</div></div></aside></div>
+      <aside class="panel focus-side"><h3>A softer way to focus 🌷</h3><div class="focus-tips"><div class="tip"><span class="tip-icon">📵</span><div><strong>Put distractions away</strong><p>Silence notifications and keep only what you need open.</p></div></div><div class="tip"><span class="tip-icon">📝</span><div><strong>Choose one clear task</strong><p>“Solve five exercises” is easier to start than “study Maths.”</p></div></div><div class="tip"><span class="tip-icon">💧</span><div><strong>Take a real break</strong><p>Stand up, stretch, drink water, and let your mind reset.</p></div></div><div class="tip"><span class="tip-icon">🌱</span><div><strong>Done is better than perfect</strong><p>A focused 15 minutes still counts. Start small if you need to.</p></div></div></div><div class="sound-card"><div class="tiny muted" style="font-weight:800">CALM SOUNDS</div><div class="seg" id="snd-seg" role="group" aria-label="Calm sound"><button type="button" class="seg-btn on" data-snd="off">Off</button><button type="button" class="seg-btn" data-snd="rain">Rain</button><button type="button" class="seg-btn" data-snd="waves">Waves</button><button type="button" class="seg-btn" data-snd="forest">Forest night</button><button type="button" class="seg-btn" data-snd="fire">Fireplace</button><button type="button" class="seg-btn" data-snd="hum">Soft hum</button><button type="button" class="seg-btn" data-snd="brown">Deep calm</button></div><label class="sr-only" for="snd-vol">Volume</label><input type="range" id="snd-vol" min="0" max="100" value="40"></div><div style="margin-top:14px;padding:14px;border-radius:15px;background:var(--surface-2)"><div class="tiny muted">TOTAL FOCUS TIME THIS WEEK</div><div class="metric-big" id="focus-week-total">0 min</div></div></aside></div>
   </section>
 
   <section class="view" id="view-notes">
@@ -498,15 +575,15 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     <div class="view-toolbar"><div><h2 class="section-title">How to use My Planner</h2><p class="section-sub">A two-minute tour. Open any topic below.</p></div></div>
     <article class="panel guide-hero"><h3>Quick start</h3><p class="muted" style="margin:0">Four steps and you are set up:</p><ol><li>In <b>Settings</b>, type your name and edit your <b>subjects</b> and weekly hour targets.</li><li>Add your school or study hours as blocks in the <b>Timetable</b>.</li><li>Add your next exam in <b>Revision</b> so the countdown starts.</li><li>Press <kbd>N</kbd> or tap <b>New task</b> to add your first task, then tick it off.</li></ol><div class="settings-actions"><button class="btn btn-primary" data-action="new-task">＋ Add my first task</button><button class="btn" data-goto="settings">Open settings</button></div></article>
     <details class="g-item" open><summary><span class="g-ic">☷</span>Tasks</summary><div class="g-body"><ul><li>Add a task with the <b>New task</b> button or the <kbd>N</kbd> key. Give it a subject, due date, optional time, priority and notes.</li><li><b>Repeat</b> makes a task come back every day, on weekdays, or weekly. Each day is ticked separately.</li><li>Link a task to an <b>exam</b> to see a countdown on it.</li><li>Tick the box to finish it. Finish them all to see a surprise.</li><li>Late tasks show <b>Overdue</b>. Tap ↷ to move one to today.</li><li>Use search, filters and sorting on the Tasks page. Deleted something by mistake? Tap <b>Undo</b> in the pop-up.</li></ul></div></details>
-    <details class="g-item"><summary><span class="g-ic">▤</span>Calendar</summary><div class="g-body"><ul><li>Pink dots are tasks, yellow are exams, green are your weekly timetable blocks.</li><li>Tap a day to see everything planned for it, and add a task for that exact date.</li></ul></div></details>
+    <details class="g-item"><summary><span class="g-ic">▤</span>Calendar</summary><div class="g-body"><ul><li>Pink dots are tasks, yellow are exams, green are your weekly timetable blocks.</li><li>Tap a day to see everything planned for it, and add a task for that exact date.</li><li>The strip on top counts the <b>days left in the month</b>. Under the calendar are your <b>month goals</b>: count them yourself with ＋1, let study hours count automatically from your logs and Focus sessions, or finish tasks you linked to the goal. The little tick on a bar shows where an even pace would put you today.</li><li>Behind on a goal near the end of the month? Tap ↷ to carry what is left into next month. A violet dot marks the last day of the month while goals are still open.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">▦</span>Timetable</summary><div class="g-body"><ul><li>Time blocks repeat every week: classes, work, sport, study time.</li><li>Use <b>＋ Add</b> under a day, ✎ to edit and × to remove.</li><li>Today's blocks and timed tasks appear together in <b>Today's schedule</b> on the Overview, with Now and Next markers.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">✎</span>Revision</summary><div class="g-body"><ul><li><b>Log study session</b> records minutes for a subject. Progress bars compare them with each subject's weekly target.</li><li>Set your overall weekly goal in hours on the right.</li><li>Add exams to get countdowns. Edit or delete them any time.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">◷</span>Focus timer</summary><div class="g-body"><ul><li>Choose what you are working on, pick 25, 45 or 50 minutes, then press <b>Start focus</b>.</li><li>When a focus session ends it is <b>logged automatically</b> to Revision. Breaks are not logged.</li><li>The timer keeps counting if you switch tabs or close the page, and allows notifications if you accept the prompt.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">♡</span>Journal</summary><div class="g-body"><ul><li><b>Daily</b> keeps one note per date. <b>Brain dump</b> is a single free page.</li><li>Everything autosaves while you type. Use the prompts if you are stuck, and tap a past entry to reopen it.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">☑</span>Checklists, dragging and focus links</summary><div class="g-body"><ul><li>Type one item per line in a task's <b>Checklist</b> box, then tick the items right on the task.</li><li>On a computer, <b>drag a task</b> onto a day in the Calendar, or onto a day in "Your week at a glance", to move it. On a phone, edit the task and change its date.</li><li>In the Focus room, <b>link a session to a task</b>. The minutes are added to that task (⏱).</li></ul></div></details>
-    <details class="g-item"><summary><span class="g-ic">↗</span>Stats</summary><div class="g-body"><ul><li>The <b>heatmap</b> shows how much you studied each day. Darker means more.</li><li>The weekly chart splits your minutes by subject. You also get your streaks and your best day and time.</li><li>Everything comes from the sessions you log, so log (or time) every session.</li></ul></div></details>
+    <details class="g-item"><summary><span class="g-ic">↗</span>Stats</summary><div class="g-body"><ul><li>The <b>heatmap</b> shows how much you studied each day. Darker means more.</li><li>The weekly chart splits your minutes by subject. You also get your streaks and your best day and time.</li><li>Everything comes from the sessions you log, so log (or time) every session.</li><li><b>This month</b> at the top compares your study time with last month, shows a bar for each day, your tasks by subject and your goals. Use ‹ › to look at other months.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">❀</span>Self-care</summary><div class="g-body"><ul><li>Check in with your mood, water and sleep each day, and tick your daily habits. Add your own habits.</li><li>Try the breathing circle when you feel stressed. The cycle tracker is optional and private.</li></ul></div></details>
-    <details class="g-item"><summary><span class="g-ic">🎧</span>Sounds and reminders</summary><div class="g-body"><ul><li>In the Focus room pick <b>Rain, Waves or Soft hum</b> and set the volume.</li><li>In <b>Settings → Daily reminder</b> choose a time. Allow notifications when asked. It only works while the app is open.</li></ul></div></details>
+    <details class="g-item"><summary><span class="g-ic">🎧</span>Sounds and reminders</summary><div class="g-body"><ul><li>In the Focus room pick <b>Rain, Waves, Forest night, Fireplace, Soft hum or Deep calm</b> and set the volume. Sounds are made live on your device, fade in and out gently, and work offline.</li><li>In <b>Settings → Daily reminder</b> choose a time. Allow notifications when asked. It only works while the app is open.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">🎨</span>Themes, backgrounds and effects</summary><div class="g-body"><ul><li>In <b>Settings → Appearance</b> choose one of six colour themes and Light, Dark or Match my device.</li><li>In <b>Backgrounds &amp; effects</b> pick a background (Aurora, Sunset, Dots, Grid, Stripes) and an effect (floating petals, sparkles, bubbles, rain). Choose Plain and None for a quiet look.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">📦</span>Backups and privacy</summary><div class="g-body"><ul><li>Your data stays <b>in this browser only</b>. Nothing is uploaded.</li><li>Clearing browser data erases it, so use <b>Export backup</b> now and then and <b>Import backup</b> to restore.</li><li><b>Export .ics</b> sends tasks, timetable and exams to Apple, Google or Outlook calendar.</li></ul></div></details>
     <details class="g-item"><summary><span class="g-ic">📱</span>Install on your phone</summary><div class="g-body"><ul><li><b>iPhone:</b> open in Safari, tap Share, then Add to Home Screen.</li><li><b>Android:</b> open in Chrome, tap the menu, then Install app.</li><li>After the first visit it also works offline.</li></ul></div></details>
@@ -514,6 +591,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
 
   <section class="view" id="view-stats">
     <div class="view-toolbar"><div><h2 class="section-title">Your stats</h2><p class="section-sub">See when and how much you study.</p></div></div>
+    <article class="panel" id="st-month" style="margin-bottom:18px"><div class="panel-head"><div><h3 id="sm-title">This month</h3><p id="sm-sub"></p></div><div class="sm-nav"><button type="button" class="btn btn-small" id="sm-prev" aria-label="Previous month">‹</button><button type="button" class="btn btn-small" id="sm-now">This month</button><button type="button" class="btn btn-small" id="sm-next" aria-label="Next month">›</button></div></div><div class="panel-body" id="sm-body"></div></article>
     <div class="stats-grid" id="st-cards"></div>
     <div class="stack">
       <article class="panel"><div class="panel-head"><div><h3>Study heatmap</h3><p>Minutes studied each day over the last 17 weeks</p></div></div><div class="panel-body"><div class="heat-wrap"><div class="heat" id="st-heat" role="img" aria-label="Study heatmap"></div></div><div class="cal-legend" id="st-heat-legend"></div></div></article>
@@ -594,7 +672,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     tasks:[],
     events:[],
     subjects:[{name:'Maths',target:4},{name:'Science',target:4},{name:'Languages',target:3},{name:'Reading',target:2}],
-    exams:[],logs:[],notes:'',journal:{},meta:{lastBackup:null,snoozeUntil:null,firstUse:null},focusTimer:{},
+    exams:[],logs:[],goals:[],notes:'',journal:{},meta:{lastBackup:null,snoozeUntil:null,firstUse:null},focusTimer:{},
   });
   function loadData(){
     const base=defaultData();
@@ -602,7 +680,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
       const saved=localStorage.getItem(STORAGE_KEY);
       if(!saved) return base;
       const parsed=JSON.parse(saved);
-      return {...base,...parsed,meta:{...base.meta,...(parsed.meta&&typeof parsed.meta==='object'?parsed.meta:{})},journal:parsed.journal&&typeof parsed.journal==='object'&&!Array.isArray(parsed.journal)?parsed.journal:{},profile:{...base.profile,...(parsed.profile||{})},tasks:Array.isArray(parsed.tasks)?parsed.tasks:[],events:Array.isArray(parsed.events)?parsed.events:base.events,subjects:Array.isArray(parsed.subjects)&&parsed.subjects.length?parsed.subjects:base.subjects,exams:Array.isArray(parsed.exams)?parsed.exams:[],logs:Array.isArray(parsed.logs)?parsed.logs:[],notes:typeof parsed.notes==='string'?parsed.notes:''};
+      return {...base,...parsed,meta:{...base.meta,...(parsed.meta&&typeof parsed.meta==='object'?parsed.meta:{})},journal:parsed.journal&&typeof parsed.journal==='object'&&!Array.isArray(parsed.journal)?parsed.journal:{},profile:{...base.profile,...(parsed.profile||{})},tasks:Array.isArray(parsed.tasks)?parsed.tasks:[],events:Array.isArray(parsed.events)?parsed.events:base.events,subjects:Array.isArray(parsed.subjects)&&parsed.subjects.length?parsed.subjects:base.subjects,exams:Array.isArray(parsed.exams)?parsed.exams:[],goals:Array.isArray(parsed.goals)?parsed.goals:[],logs:Array.isArray(parsed.logs)?parsed.logs:[],notes:typeof parsed.notes==='string'?parsed.notes:''};
     } catch(err){ console.warn('Could not read planner data; using a fresh planner.',err); return base; }
   }
   let data=loadData();
@@ -679,8 +757,9 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     const done=isDone(task,iso), over=!task.repeat&&!task.done&&task.date&&task.date<todayISO(), due=iso===todayISO()?'Today':prettyDate(iso), id=escapeHTML(task.id);
     const rep=task.repeat?({daily:'Every day',weekdays:'Weekdays',weekly:'Every week'})[task.repeat]:'';
     const ex=task.examId?data.exams.find(e=>e.id===task.examId):null, exd=ex?daysRemaining(ex.date):null;
+    const gl0=task.goalId?data.goals.find(g=>g.id===task.goalId):null, glTag=gl0?`<span>·</span><span title="Linked goal">🎯 ${escapeHTML(gl0.title)}</span>`:'';
     const exTag=ex&&exd>=0?`<span>·</span><span title="Linked exam">🎯 ${escapeHTML(ex.title)} ${exd===0?'today':exd===1?'tomorrow':'in '+exd+'d'}</span>`:'';
-    return `<div class="task-row ${done?'completed':''}" style="--sc:${subjColor(task.subject||'Personal')}" data-task-row="${id}" ${task.repeat?'':'draggable="true"'}><button class="check ${done?'checked':''}" data-action="toggle-task" data-id="${id}" data-iso="${escapeHTML(iso)}" aria-pressed="${done}" aria-label="${escapeHTML(task.title)}: ${done?'mark incomplete':'mark complete'}">${done?'✓':''}</button><div class="task-main"><div class="task-title">${escapeHTML(task.title)}</div><div class="task-meta"><span class="priority ${escapeHTML(task.priority||'medium')}" title="${escapeHTML(task.priority||'medium')} priority"></span><span>${escapeHTML(task.subject||'Personal')}</span><span>·</span>${over?`<span class="overdue">Overdue · ${escapeHTML(due)}</span>`:`<span>${escapeHTML(rep||due)}</span>`}${task.time?`<span>·</span><span>${escapeHTML(task.time)}</span>`:''}${task.duration?`<span>·</span><span>${Number(task.duration)}m</span>`:''}${task.spent?`<span>·</span><span title="Focused time">⏱ ${humanMins(task.spent)}</span>`:''}${exTag}</div>${task.notes?`<div class="task-notes">${escapeHTML(task.notes)}</div>`:''}${subsHTML(task,iso)}</div><span class="tag">${escapeHTML(task.category||'Task')}</span>${over?`<button class="icon-btn" data-action="move-today" data-id="${id}" title="Move to today" aria-label="Move ${escapeHTML(task.title)} to today">↷</button>`:''}${compact?'':`<div class="row-actions"><button class="icon-btn" data-action="edit-task" data-id="${id}" title="Edit task" aria-label="Edit task">✎</button><button class="icon-btn" data-action="delete-task" data-id="${id}" title="Delete task" aria-label="Delete task">×</button></div>`}</div>`;
+    return `<div class="task-row ${done?'completed':''}" style="--sc:${subjColor(task.subject||'Personal')}" data-task-row="${id}" ${task.repeat?'':'draggable="true"'}><button class="check ${done?'checked':''}" data-action="toggle-task" data-id="${id}" data-iso="${escapeHTML(iso)}" aria-pressed="${done}" aria-label="${escapeHTML(task.title)}: ${done?'mark incomplete':'mark complete'}">${done?'✓':''}</button><div class="task-main"><div class="task-title">${escapeHTML(task.title)}</div><div class="task-meta"><span class="priority ${escapeHTML(task.priority||'medium')}" title="${escapeHTML(task.priority||'medium')} priority"></span><span>${escapeHTML(task.subject||'Personal')}</span><span>·</span>${over?`<span class="overdue">Overdue · ${escapeHTML(due)}</span>`:`<span>${escapeHTML(rep||due)}</span>`}${task.time?`<span>·</span><span>${escapeHTML(task.time)}</span>`:''}${task.duration?`<span>·</span><span>${Number(task.duration)}m</span>`:''}${task.spent?`<span>·</span><span title="Focused time">⏱ ${humanMins(task.spent)}</span>`:''}${exTag}${glTag}</div>${task.notes?`<div class="task-notes">${escapeHTML(task.notes)}</div>`:''}${subsHTML(task,iso)}</div><span class="tag">${escapeHTML(task.category||'Task')}</span>${over?`<button class="icon-btn" data-action="move-today" data-id="${id}" title="Move to today" aria-label="Move ${escapeHTML(task.title)} to today">↷</button>`:''}${compact?'':`<div class="row-actions"><button class="icon-btn" data-action="edit-task" data-id="${id}" title="Edit task" aria-label="Edit task">✎</button><button class="icon-btn" data-action="delete-task" data-id="${id}" title="Delete task" aria-label="Delete task">×</button></div>`}</div>`;
   }
   function emptyState(icon,title,body,actionText='',action='') {return `<div class="empty-state"><div class="empty-icon">${icon}</div><strong>${title}</strong><p>${body}</p>${actionText?`<button class="btn btn-small btn-primary" data-action="${action}">${actionText}</button>`:''}</div>`;}
   function renderHeader(){
@@ -715,26 +794,158 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     if(filter==='today')list=list.filter(t=>occursOn(t,todayISO())); if(filter==='open')list=list.filter(t=>!isDone(t,rowIso(t))); if(filter==='done')list=list.filter(t=>isDone(t,rowIso(t))); if(filter==='high')list=list.filter(t=>t.priority==='high'); if(filter==='overdue')list=list.filter(t=>!t.repeat&&!t.done&&t.date&&t.date<todayISO());
     list=sortTasks(list); $('#task-count-label').textContent=`${list.length} task${list.length===1?'':'s'} shown · ${data.tasks.filter(t=>!isDone(t,rowIso(t))).length} still open`; $('#all-tasks').innerHTML=list.length?list.map(t=>taskRow(t,false)).join(''):emptyState('📝','Your list is clear','Add a task or change the filter to see more.','Add task','new-task');
   }
+  let ttDay=new Date().getDay();
+  $('#tt-days').addEventListener('click',e=>{const b=e.target.closest('[data-ttday]');if(b){ttDay=+b.dataset.ttday;renderTimetable();}});
   function renderTimetable(){
     const ws=data.profile.weekStart??1;
-    $('#week-grid').innerHTML=Array.from({length:7},(_,k)=>(ws+k)%7).map(i=>{const day=dayNames[i];const events=data.events.filter(e=>Number(e.day)===i).sort((a,b)=>a.start.localeCompare(b.start));return `<div class="day-column ${new Date().getDay()===i?'today':''}"><div class="day-col-head"><strong>${day}</strong><span>${events.length} ${events.length===1?'block':'blocks'}</span></div>${events.map(e=>`<div class="event-card"><button class="event-delete" data-action="delete-event" data-id="${escapeHTML(e.id)}" title="Remove block" aria-label="Remove ${escapeHTML(e.title)}">×</button><button class="event-delete" style="margin-right:5px" data-action="edit-event" data-id="${escapeHTML(e.id)}" title="Edit block" aria-label="Edit ${escapeHTML(e.title)}">✎</button><div class="event-time">${escapeHTML(e.start)}–${escapeHTML(e.end)}</div><div class="event-name">${escapeHTML(e.title)}</div><div class="event-sub">${escapeHTML(e.subject||'Personal')}</div></div>`).join('')||'<div class="tiny muted" style="padding:10px 2px 15px">A little open space ♡</div>'}<button class="event-add" data-action="new-event" data-day="${i}">＋ Add</button></div>`;}).join('');
+    $('#tt-days').innerHTML=Array.from({length:7},(_,k)=>(ws+k)%7).map(i=>{const n=data.events.filter(e=>Number(e.day)===i).length;return `<button type="button" class="${i===ttDay?'on':''}" data-ttday="${i}" role="tab" aria-selected="${i===ttDay}">${dayNames[i].slice(0,3)}<small>${n?n+(n===1?' block':' blocks'):'free'}</small></button>`;}).join('');
+    $('#week-grid').innerHTML=Array.from({length:7},(_,k)=>(ws+k)%7).map(i=>{const day=dayNames[i];const events=data.events.filter(e=>Number(e.day)===i).sort((a,b)=>a.start.localeCompare(b.start));return `<div class="day-column ${new Date().getDay()===i?'today':''}${i===ttDay?' show':''}"><div class="day-col-head"><strong>${day}</strong><span>${events.length} ${events.length===1?'block':'blocks'}</span></div>${events.map(e=>`<div class="event-card"><button class="event-delete" data-action="delete-event" data-id="${escapeHTML(e.id)}" title="Remove block" aria-label="Remove ${escapeHTML(e.title)}">×</button><button class="event-delete" style="margin-right:5px" data-action="edit-event" data-id="${escapeHTML(e.id)}" title="Edit block" aria-label="Edit ${escapeHTML(e.title)}">✎</button><div class="event-time">${escapeHTML(e.start)}–${escapeHTML(e.end)}</div><div class="event-name">${escapeHTML(e.title)}</div><div class="event-sub">${escapeHTML(e.subject||'Personal')}</div></div>`).join('')||'<div class="tiny muted" style="padding:10px 2px 15px">A little open space ♡</div>'}<button class="event-add" data-action="new-event" data-day="${i}">＋ Add</button></div>`;}).join('');
   }
+
+  /* ===== Month goals ===== */
+  const pad2=n=>String(n).padStart(2,'0');
+  const monthKeyOf=iso=>String(iso).slice(0,7);
+  const monthDays=key=>{const p=key.split('-').map(Number);return new Date(p[0],p[1],0).getDate();};
+  const monthName=(key,opts)=>new Date(key+'-01T12:00:00').toLocaleDateString(undefined,opts||{month:'long'});
+  const shiftMonth=(key,n)=>{const p=key.split('-').map(Number),d=new Date(p[0],p[1]-1+n,1);return d.getFullYear()+'-'+pad2(d.getMonth()+1);};
+  const calKey=()=>calMonth.getFullYear()+'-'+pad2(calMonth.getMonth()+1);
+  const goalsFor=key=>data.goals.filter(g=>g.month===key);
+  const fmtN=v=>{v=Math.round(v*10)/10;return Number.isInteger(v)?String(v):v.toFixed(1);};
+  const G_ICON={count:'🎯',hours:'⏱️',tasks:'✅'}, G_BADGE={done:'Done ✓',ok:'On track',behind:'Behind',missed:'Missed',soon:'Upcoming',empty:'Link tasks'}, G_ORDER={behind:0,missed:1,ok:2,soon:3,empty:3,done:4};
+  const gDate=g=>{const t=todayISO(),k=monthKeyOf(t);return k===g.month?t:(k>g.month?g.month+'-'+pad2(monthDays(g.month)):g.month+'-01');};
+  function goalTaskUnits(g){
+    let n=0,c=0;const days=monthDays(g.month);
+    data.tasks.forEach(t=>{if(t.goalId!==g.id)return;
+      if(t.repeat){for(let d=1;d<=days;d++){const iso=g.month+'-'+pad2(d);if(occursOn(t,iso)){n++;if((t.doneDates||[]).includes(iso))c++;}}}
+      else{n++;if(t.done)c++;}});
+    return {n,c};
+  }
+  function goalStat(g){
+    const kind=g.kind||'count',key=g.month,days=monthDays(key),t=todayISO(),first=key+'-01',last=key+'-'+pad2(days);
+    let cur=0,tar=Math.max(.5,+g.target||1),label='',noLinks=false;
+    if(kind==='hours'){
+      const mins=data.logs.filter(l=>l.date>=first&&l.date<=last&&(!g.subject||l.subject===g.subject)).reduce((a,l)=>a+Number(l.minutes||0),0);
+      cur=Math.round(mins/6)/10;label=fmtN(cur)+' / '+fmtN(tar)+' h'+(g.subject?' · '+g.subject:'');
+    }else if(kind==='tasks'){
+      const u=goalTaskUnits(g);cur=u.c;tar=u.n;noLinks=!u.n;label=noLinks?'No tasks linked yet':u.c+' / '+u.n+' tasks';
+    }else{cur=Math.max(0,+g.progress||0);label=fmtN(cur)+' / '+fmtN(tar)+(g.unit?' '+g.unit:'');}
+    const done=!noLinks&&cur>=tar,pct=noLinks?0:Math.min(100,Math.round(cur/tar*100));
+    const phase=t<first?'future':t>last?'past':'now',day=phase==='now'?+t.slice(8):(phase==='past'?days:0),left=phase==='now'?days-day+1:0;
+    const exp=phase==='now'?tar*day/days:(phase==='past'?tar:0),expPct=noLinks||!tar?0:Math.min(100,Math.round(exp/tar*100));
+    const state=done?'done':noLinks?(phase==='past'?'missed':'empty'):phase==='past'?'missed':phase==='future'?'soon':(exp-cur>Math.max(.75,tar*.1)?'behind':'ok');
+    const rem=Math.max(0,tar-cur);let hint='';
+    if(done)hint='Completed 🎉';
+    else if(noLinks)hint='Add a task and pick this goal';
+    else if(phase==='past')hint='Month ended at '+pct+'%';
+    else if(phase==='future')hint='Starts '+prettyDate(first);
+    else{const per=rem/left;hint=fmtN(rem)+(kind==='hours'?' h':'')+' to go · '+left+' day'+(left===1?'':'s')+' left'+(kind==='hours'?' · about '+fmtN(per)+' h a day':(per>=1?' · about '+Math.ceil(per)+' a day':' · about 1 every '+Math.max(1,Math.floor(1/per))+' days'));}
+    return {kind,cur,tar,pct,expPct,done,state,phase,label,hint,left,rem,noLinks};
+  }
+  function goalCard(g){
+    const s=goalStat(g),id=escapeHTML(g.id);
+    const quick=s.kind==='count'?`<button type="button" class="icon-btn" data-action="goal-dec" data-id="${id}" aria-label="Take one off ${escapeHTML(g.title)}" ${s.cur<=0?'disabled':''}>−</button><button type="button" class="btn btn-small" data-action="goal-inc" data-id="${id}" aria-label="Add one to ${escapeHTML(g.title)}">＋1</button>`
+      :s.kind==='hours'?`<button type="button" class="btn btn-small" data-action="goal-log" data-id="${id}">＋ Log time</button>`
+      :`<button type="button" class="btn btn-small" data-action="goal-task" data-id="${id}">＋ Task</button>`;
+    const carry=(!s.done&&!g.carried&&s.kind!=='tasks'&&(s.phase==='past'||(s.phase==='now'&&s.left<=3&&s.state==='behind')))?`<button type="button" class="icon-btn" data-action="goal-carry" data-id="${id}" title="Carry what is left into next month" aria-label="Carry ${escapeHTML(g.title)} into next month">↷</button>`:'';
+    return `<div class="goal ${s.state}"><div class="goal-top"><span class="goal-ico" aria-hidden="true">${G_ICON[s.kind]}</span><div class="goal-main"><div class="goal-title">${escapeHTML(g.title)}</div><div class="goal-sub">${escapeHTML(s.hint)}</div></div><span class="goal-badge">${G_BADGE[s.state]}</span></div><div class="goal-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${s.pct}" aria-label="${escapeHTML(g.title)} progress"><i style="width:${s.pct}%"></i>${s.phase==='now'&&!s.done&&!s.noLinks?`<b style="left:${s.expPct}%" title="Where an even pace would put you today"></b>`:''}</div><div class="goal-foot"><span class="goal-label">${escapeHTML(s.label)}<em>${s.pct}%</em></span><span class="goal-act">${quick}${carry}<button type="button" class="icon-btn" data-action="edit-goal" data-id="${id}" title="Edit goal" aria-label="Edit ${escapeHTML(g.title)}">✎</button><button type="button" class="icon-btn" data-action="delete-goal" data-id="${id}" title="Delete goal" aria-label="Delete ${escapeHTML(g.title)}">×</button></span></div></div>`;
+  }
+  function goalMini(g){
+    const s=goalStat(g);
+    return `<div class="gm ${s.state}"><div class="gm-top"><b>${G_ICON[s.kind]} ${escapeHTML(g.title)}</b><em>${s.noLinks?'No tasks yet':s.pct+'%'}</em></div><div class="goal-bar sm"><i style="width:${s.pct}%"></i></div><div class="gm-sub">${escapeHTML(s.done?'Completed 🎉':s.label+(s.phase==='now'?' · '+G_BADGE[s.state].toLowerCase():''))}</div></div>`;
+  }
+  function renderRunway(){
+    const el=$('#cal-runway');if(!el)return;
+    const key=calKey(),days=monthDays(key),t=todayISO(),first=key+'-01',last=key+'-'+pad2(days),phase=t<first?'future':t>last?'past':'now';
+    const day=phase==='now'?+t.slice(8):(phase==='past'?days:0),left=phase==='now'?days-day+1:0,pct=Math.round(day/days*100);
+    const gl=goalsFor(key),gd=gl.filter(g=>goalStat(g).done).length,mn=monthName(key),from=phase==='now'?t:first;
+    const open=data.tasks.filter(x=>!x.repeat&&!x.done&&x.date&&x.date>=from&&x.date<=last).length,ex=data.exams.filter(e=>e.date>=from&&e.date<=last).length;
+    const dl=phase==='future'?daysRemaining(first):0;
+    const big=phase==='now'?left:(phase==='future'?dl:'✓'),cap=phase==='now'?'day'+(left===1?'':'s')+' left in '+mn:(phase==='future'?'day'+(dl===1?'':'s')+' until '+mn:mn+' is over');
+    const note=phase==='past'?(gl.length&&gd<gl.length?'Some goals were not finished. Open them below and tap ↷ to carry what is left into '+monthName(shiftMonth(key,1))+'.':'That month is wrapped up.'):open+' task'+(open===1?'':'s')+' and '+ex+' exam'+(ex===1?'':'s')+(phase==='now'?' still to come before the month ends.':' planned for this month.');
+    el.innerHTML=`<div class="rw"><div class="rw-big"><b>${big}</b><span>${escapeHTML(cap)}</span></div><div class="rw-mid"><div class="rw-track"><i style="width:${pct}%"></i>${phase==='now'?`<span class="rw-now" style="left:${Math.min(94,Math.max(6,pct))}%">▾ today</span>`:''}</div><div class="rw-ends"><span>${escapeHTML(prettyDate(first))}</span><span>${escapeHTML(prettyDate(last))}</span></div></div><div class="rw-side"><b>${gd}/${gl.length}</b><span>goals done</span></div></div><p class="rw-note">${escapeHTML(note)}</p>`;
+  }
+  function renderCalGoals(){
+    const el=$('#cg-list');if(!el)return;
+    const key=calKey(),mn=monthName(key),list=goalsFor(key).sort((a,b)=>G_ORDER[goalStat(a).state]-G_ORDER[goalStat(b).state]||(a.createdAt||0)-(b.createdAt||0)),gd=list.filter(g=>goalStat(g).done).length;
+    $('#cg-title').textContent='Goals for '+mn;
+    $('#cg-sub').textContent=list.length?gd+' of '+list.length+' done · study hours, linked tasks and Focus sessions count automatically':'What do you want to finish this month?';
+    el.innerHTML=list.length?list.map(g=>goalCard(g)).join(''):'<div style="grid-column:1/-1">'+emptyState('🎯','No goals for '+mn,'Pick a few things to finish by the end of the month. Study hours and linked tasks fill in the progress for you.','Set a goal','new-goal')+'</div>';
+  }
+  function renderGoalMini(){
+    const key=monthKeyOf(todayISO()),rows=goalsFor(key).map(g=>({g,s:goalStat(g)})).sort((a,b)=>G_ORDER[a.s.state]-G_ORDER[b.s.state]);
+    const left=monthDays(key)-(+todayISO().slice(8))+1,gd=rows.filter(r=>r.s.done).length;
+    const html=!rows.length?'<p class="tiny muted" style="margin:0 0 12px">No goals for '+escapeHTML(monthName(key))+' yet. Pick a few things to finish before the month ends.</p><button type="button" class="btn btn-small btn-primary" data-action="new-goal">🎯 Set a goal</button>'
+      :'<div class="gm-head"><b>'+left+' day'+(left===1?'':'s')+' left</b><span>'+gd+'/'+rows.length+' goals done</span></div>'+rows.slice(0,4).map(r=>goalMini(r.g)).join('')+(rows.length>4?'<button type="button" class="link-btn" data-goto="calendar">+'+(rows.length-4)+' more →</button>':'');
+    ['#td-goals-body','#dash-goals-body'].forEach(sel=>{const el=$(sel);if(el)el.innerHTML=html;});
+  }
+  function goalDayHTML(iso){
+    const key=monthKeyOf(iso);if(iso!==key+'-'+pad2(monthDays(key)))return '';
+    const open=goalsFor(key).filter(g=>!goalStat(g).done);if(!open.length)return '';
+    return '<div class="goal-due"><strong>🏁 Goals due today</strong>'+open.map(g=>goalMini(g)).join('')+'</div>';
+  }
+  let goalSeen=false;
+  function goalWatch(){
+    const won=[];let changed=false;
+    data.goals.forEach(g=>{const s=goalStat(g);if(!!g.hit!==s.done){if(s.done&&goalSeen&&s.phase!=='past')won.push(g);g.hit=s.done;changed=true;}});
+    goalSeen=true;if(changed)saveData();
+    if(won.length)setTimeout(()=>{showToast('Goal complete: '+won[0].title+' 🎉'+(won.length>1?' (+'+(won.length-1)+' more)':''));confetti();},1700);
+  }
+  /* ----- Stats: month report ----- */
+  let stMonth=monthKeyOf(todayISO());
+  function monthReport(key){
+    const days=monthDays(key),t=todayISO(),first=key+'-01',last=key+'-'+pad2(days),by={},subj={};let n=0,c=0,up=0,mins=0;
+    data.logs.forEach(l=>{if(l.date>=first&&l.date<=last){const m=Number(l.minutes||0);by[l.date]=(by[l.date]||0)+m;mins+=m;}});
+    for(let d=1;d<=days;d++){const iso=key+'-'+pad2(d);tasksOn(iso).forEach(tk=>{if(iso>t){up++;return;}n++;const dn=isDone(tk,iso),sn=tk.subject||'Personal';(subj[sn]=subj[sn]||{n:0,c:0}).n++;if(dn){c++;subj[sn].c++;}});}
+    const elapsed=t<first?0:t>last?days:+t.slice(8),act=Object.keys(by).filter(k=>by[k]>0).length;
+    return {key,days,by,mins,n,c,up,subj,elapsed,act};
+  }
+  function renderStatsMonth(){
+    const el=$('#sm-body');if(!el)return;
+    const key=stMonth,now=monthKeyOf(todayISO()),R=monthReport(key),P=monthReport(shiftMonth(key,-1)),mn=monthName(key),pn=monthName(shiftMonth(key,-1));
+    $('#sm-title').textContent=monthName(key,{month:'long',year:'numeric'});
+    $('#sm-sub').textContent=R.elapsed===0?'This month has not started yet':(R.elapsed>=R.days?'The whole month':'Day '+R.elapsed+' of '+R.days);
+    $('#sm-next').disabled=key>=shiftMonth(now,6);$('#sm-prev').disabled=key<=shiftMonth(now,-24);$('#sm-now').disabled=key===now;
+    const full=R.elapsed>=R.days,upto=full?P.days:Math.min(R.elapsed,P.days);let pm=0;Object.keys(P.by).forEach(k=>{if(+k.slice(8)<=upto)pm+=P.by[k];});
+    const diff=R.mins-pm;
+    const dTxt=R.elapsed===0?'Not started yet':(!pm&&!R.mins?'Nothing logged yet':diff===0?'Same as '+pn:(diff>0?'▲ ':'▼ ')+humanMins(Math.abs(diff))+(diff>0?' more':' less')+' than '+(full?pn:'the same days of '+pn));
+    const rate=R.n?Math.round(R.c/R.n*100):null,gl=goalsFor(key),gst=gl.map(goalStat),gdn=gst.filter(x=>x.done).length,gbh=gst.filter(x=>x.state==='behind'||x.state==='missed').length;
+    const card=(i,t,v,f)=>`<div class="stat-card"><div class="stat-top"><span>${t}</span><span class="stat-icon">${i}</span></div><div class="stat-value">${v}</div><div class="stat-foot">${f}</div></div>`;
+    const cards=card('◷','Study time',humanMins(R.mins),escapeHTML(dTxt))
+      +card('✅','Tasks done',R.n?R.c+'/'+R.n:'–',R.n?rate+'% of tasks due so far'+(R.up?' · '+R.up+' coming up':''):(R.up?R.up+' coming up':'No tasks due yet'))
+      +card('🎯','Goals',gl.length?gdn+'/'+gl.length:'–',gl.length?(gdn===gl.length?'All done 🎉':gbh?gbh+' need'+(gbh===1?'s':'')+' attention':'All on track'):'Set one on the Calendar')
+      +card('📅','Active days',R.elapsed?R.act+'/'+R.elapsed:'–',R.elapsed?Math.round(R.act/R.elapsed*100)+'% of days with a session':'Nothing yet');
+    let best='',bm=0;Object.keys(R.by).forEach(k=>{if(R.by[k]>bm){bm=R.by[k];best=k;}});
+    const note=R.mins?'You studied '+humanMins(R.mins)+' over '+R.act+' day'+(R.act===1?'':'s')+', about '+humanMins(R.mins/R.act)+' on the days you did. Your best day was '+prettyDate(best,{weekday:'long',month:'short',day:'numeric'})+' with '+humanMins(bm)+'.':'Nothing logged for '+mn+' yet. Log a session or start a Focus timer and this page fills in.';
+    const mx=Math.max(30,...Object.values(R.by)),tdy=todayISO();let bars='';
+    for(let d=1;d<=R.days;d++){const iso=key+'-'+pad2(d),m=R.by[iso]||0;bars+='<div class="mb'+(iso===tdy?' now':'')+(iso>tdy?' fut':'')+'" title="'+escapeHTML(prettyDate(iso,{weekday:'short',month:'short',day:'numeric'})+': '+humanMins(m))+'"><div class="tr"><i class="'+(m?'':'z')+'" style="height:'+(m?Math.max(5,Math.round(m/mx*100)):0)+'%"></i></div><small>'+((d===1||d%5===0)?d:'')+'</small></div>';}
+    const goalsHtml=gl.length?'<div class="goal-grid">'+gl.slice().sort((a,b)=>G_ORDER[goalStat(a).state]-G_ORDER[goalStat(b).state]).map(g=>'<div class="goal-mini-wrap">'+goalMini(g)+'</div>').join('')+'</div>':'<p class="tiny muted" style="margin:0">No goals set for '+escapeHTML(mn)+'. Add some from the Calendar to see how you are pacing.</p>';
+    const subs=Object.keys(R.subj).sort((a,b)=>R.subj[b].n-R.subj[a].n);
+    const subHtml=subs.length?subs.map(n=>{const x=R.subj[n],p=Math.round(x.c/x.n*100);return '<div class="sb-row"><span class="sb-n"><i style="background:'+subjColor(n)+'"></i>'+escapeHTML(n)+'</span><div class="progress-track" style="margin:0"><div class="progress-fill" style="width:'+p+'%;background:'+subjColor(n)+'"></div></div><span class="sb-v">'+x.c+'/'+x.n+'</span></div>';}).join(''):'<p class="tiny muted" style="margin:0">Tasks due this month will show up here, grouped by subject.</p>';
+    el.innerHTML='<p class="st-sum" style="margin-top:0">'+escapeHTML(note)+'</p><div class="stats-grid">'+cards+'</div>'
+      +'<div class="sm-sec" style="margin-top:4px"><div class="sm-h"><h4>Study each day</h4><span>Taller bar = more minutes</span></div><div class="mbars" role="img" aria-label="Minutes studied each day of '+escapeHTML(mn)+'">'+bars+'</div></div>'
+      +'<div class="sm-sec"><div class="sm-h"><h4>Goals</h4><button type="button" class="link-btn" data-goto="calendar">Calendar →</button></div>'+goalsHtml+'</div>'
+      +'<div class="sm-sec"><div class="sm-h"><h4>Tasks by subject</h4><span>Done / due so far</span></div>'+subHtml+'</div>';
+  }
+  $('#sm-prev').addEventListener('click',()=>{stMonth=shiftMonth(stMonth,-1);renderStatsMonth();});
+  $('#sm-next').addEventListener('click',()=>{stMonth=shiftMonth(stMonth,1);renderStatsMonth();});
+  $('#sm-now').addEventListener('click',()=>{stMonth=monthKeyOf(todayISO());renderStatsMonth();});
+
   let calMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1), calSel=todayISO();
   function renderCalendar(){
     const y=calMonth.getFullYear(), m=calMonth.getMonth(), ws=data.profile.weekStart??1, today=todayISO();
     $('#cal-title').textContent=calMonth.toLocaleDateString(undefined,{month:'long',year:'numeric'});
     $('#cal-wd').innerHTML=Array.from({length:7},(_,i)=>`<span>${shortDays[(ws+i)%7]}</span>`).join('');
-    const lead=(new Date(y,m,1).getDay()-ws+7)%7, total=Math.ceil((lead+new Date(y,m+1,0).getDate())/7)*7, cells=[];
+    const gKey=`${y}-${pad2(m+1)}`, gLast=`${gKey}-${pad2(monthDays(gKey))}`, gOpen=goalsFor(gKey).some(g=>!goalStat(g).done), lead=(new Date(y,m,1).getDay()-ws+7)%7, total=Math.ceil((lead+new Date(y,m+1,0).getDate())/7)*7, cells=[];
     for(let i=0;i<total;i++){ const d=new Date(y,m,1-lead+i), iso=isoOf(d), tk=tasksOn(iso).length, ex=data.exams.filter(e=>e.date===iso).length, ev=data.events.filter(e=>Number(e.day)===d.getDay()).length;
-      const label=d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})+(tk?`, ${tk} task${tk>1?'s':''}`:'')+(ex?', exam':'');
-      cells.push(`<button type="button" class="cal-day${d.getMonth()!==m?' out':''}${iso===today?' today':''}${iso===calSel?' sel':''}" data-cal="${iso}" aria-label="${escapeHTML(label)}" aria-pressed="${iso===calSel}"><span>${d.getDate()}</span><b>${tk?'<i class="dot t"></i>':''}${ex?'<i class="dot x"></i>':''}${ev?'<i class="dot e"></i>':''}</b></button>`); }
-    $('#cal-grid').innerHTML=cells.join(''); renderCalDay();
+      const label=d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})+(tk?`, ${tk} task${tk>1?'s':''}`:'')+(ex?', exam':'')+(iso===gLast&&gOpen?', goals due':'');
+      cells.push(`<button type="button" class="cal-day${d.getMonth()!==m?' out':''}${iso===today?' today':''}${iso===calSel?' sel':''}" data-cal="${iso}" aria-label="${escapeHTML(label)}" aria-pressed="${iso===calSel}"><span>${d.getDate()}</span><b>${tk?'<i class="dot t"></i>':''}${ex?'<i class="dot x"></i>':''}${ev?'<i class="dot e"></i>':''}${iso===gLast&&gOpen?'<i class="dot g"></i>':''}</b></button>`); }
+    $('#cal-grid').innerHTML=cells.join(''); renderCalDay(); renderRunway(); renderCalGoals();
   }
   function renderCalDay(){
     const d=new Date(calSel+'T12:00:00'); $('#cal-day-title').textContent=d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});
     const ex=data.exams.filter(e=>e.date===calSel), ev=data.events.filter(e=>Number(e.day)===d.getDay()).sort((a,b)=>a.start.localeCompare(b.start));
     const html=ex.map(examRow).join('')+ev.map(e=>`<div class="event-card"><div class="event-time">${escapeHTML(e.start)}–${escapeHTML(e.end)}</div><div class="event-name">${escapeHTML(e.title)}</div><div class="event-sub">${escapeHTML(e.subject||'Personal')}</div></div>`).join('')+sortTasks(tasksOn(calSel)).map(t=>taskRow(t,false,calSel)).join('');
-    $('#cal-day-list').innerHTML=(html||emptyState('🌷','Nothing planned','This day is open. Add a task to give it shape.','Add a task','new-task-day'))+careDay(calSel);
+    $('#cal-day-list').innerHTML=(html||emptyState('🌷','Nothing planned','This day is open. Add a task to give it shape.','Add a task','new-task-day'))+goalDayHTML(calSel)+careDay(calSel);
   }
   function renderSettings(){
     $('#display-name').value=data.profile.name||''; $('#msg-style').value=data.profile.style||'mix'; $('#mode-select').value=data.profile.mode||'auto'; $('#week-start').value=String(data.profile.weekStart??1);
@@ -799,25 +1010,44 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     let marked=false;
     $('#today-schedule').innerHTML=items.map(it=>{const st=toM(it.s), en=it.e?toM(it.e):st+it.dur; const state=it.done?'done':(nm>=st&&nm<en)?'now':(nm<st&&!marked)?(marked=true,'next'):nm>=en?'past':''; return `<div class="sched-row ${state}"><span class="sched-time">${escapeHTML(it.s)}${it.e?'–'+escapeHTML(it.e):''}</span><span class="sched-main"><strong>${escapeHTML(it.title)}</strong><small>${escapeHTML(it.sub)}</small></span>${state==='now'?'<span class="tag">Now</span>':state==='next'?'<span class="tag">Next</span>':it.done?'<span class="tag">Done</span>':''}</div>`;}).join('');
   }
-  function renderAll(){renderHeader();renderDashboard();renderDashCare();renderRecap();renderStatsCare();renderToday();renderPlan();renderSnaps();renderTasks();renderCalendar();renderTimetable();renderRevision();renderFocus();renderNotes();renderSettings();renderBackupInfo();renderGuideBanner();renderStats();renderCare();renderFocusTasks();renderRemind();}
+  function renderAll(){renderHeader();renderDashboard();renderDashCare();renderRecap();renderStatsCare();renderToday();renderPlan();renderSnaps();renderTasks();renderCalendar();renderTimetable();renderRevision();renderFocus();renderNotes();renderSettings();renderBackupInfo();renderGuideBanner();renderStats();renderStatsMonth();renderGoalMini();renderCare();renderFocusTasks();renderRemind();goalWatch();}
   function navigate(view){if(!$('#view-'+view))return;activeView=view;$$('.view').forEach(v=>v.classList.toggle('active',v.id===`view-${view}`));$$('.nav-btn').forEach(b=>{const on=b.dataset.view===view;b.classList.toggle('active',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});renderAll();$('#more-sheet').classList.remove('open');$('#nav-more').setAttribute('aria-expanded','false');$('#nav-more').classList.toggle('active',['dashboard','focus','timetable','revision','stats','guide','settings'].includes(view));$$('#more-sheet button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));try{history.replaceState(null,'','#'+view);}catch(e){}window.scrollTo(0,0);}
 
   const fields={
-    task:(item={})=>`<div class="field"><label for="f-title">Task title *</label><input class="input" id="f-title" name="title" required maxlength="120" placeholder="e.g. Finish physics exercises" value="${escapeHTML(item.title||'')}"></div><div class="field-row"><div class="field"><label for="f-subject">Subject / area</label><select class="input" id="f-subject" name="subject">${subjOpts(item.subject)}</select></div><div class="field"><label for="f-category">Type</label><select class="input" id="f-category" name="category">${['Study','Homework','Revision','Project','Personal','Task'].map(s=>`<option ${s===(item.category||'Study')?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="field-row"><div class="field"><label for="f-date">Due date</label><input class="input" id="f-date" name="date" type="date" value="${escapeHTML(item.date||todayISO())}"></div><div class="field"><label for="f-time">Time (optional)</label><input class="input" id="f-time" name="time" type="time" value="${escapeHTML(item.time||'')}"></div></div><div class="field-row"><div class="field"><label for="f-priority">Priority</label><select class="input" id="f-priority" name="priority">${['low','medium','high'].map(s=>`<option value="${s}" ${(item.priority||'medium')===s?'selected':''}>${s[0].toUpperCase()+s.slice(1)}</option>`).join('')}</select></div><div class="field"><label for="f-duration">Estimated minutes</label><input class="input" id="f-duration" name="duration" type="number" min="0" max="1440" step="1" placeholder="30" value="${escapeHTML(item.duration??30)}"></div></div><div class="field"><label for="f-repeat">Repeat</label><select class="input" id="f-repeat" name="repeat">${[['','Does not repeat'],['daily','Every day'],['weekdays','Weekdays'],['weekly','Every week']].map(([v,l])=>`<option value="${v}" ${(item.repeat||'')===v?'selected':''}>${l}</option>`).join('')}</select></div><div class="field"><label for="f-exam">Linked exam (optional)</label><select class="input" id="f-exam" name="examId"><option value="">None</option>${data.exams.filter(e=>daysRemaining(e.date)>=0||e.id===item.examId).sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<option value="${escapeHTML(e.id)}" ${item.examId===e.id?'selected':''}>${escapeHTML(e.title)} · ${prettyDate(e.date)}</option>`).join('')}</select></div><div class="field"><label for="f-subs">Checklist (optional, one item per line)</label><textarea class="input" id="f-subs" name="subs" rows="3" maxlength="700" placeholder="Read chapter 3&#10;Do the exercises">${escapeHTML((item.subtasks||[]).map(x=>x.t).join('\n'))}</textarea></div><div class="field"><label for="f-notes">Notes (optional)</label><textarea class="input" id="f-notes" name="notes" rows="2" maxlength="300" placeholder="Pages, links, details…">${escapeHTML(item.notes||'')}</textarea></div><div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>${item.id?'Save changes':'Add task'}</button></div>`,
+    task:(item={})=>`<div class="field"><label for="f-title">Task title *</label><input class="input" id="f-title" name="title" required maxlength="120" placeholder="e.g. Finish physics exercises" value="${escapeHTML(item.title||'')}"></div><div class="field-row"><div class="field"><label for="f-subject">Subject / area</label><select class="input" id="f-subject" name="subject">${subjOpts(item.subject)}</select></div><div class="field"><label for="f-category">Type</label><select class="input" id="f-category" name="category">${['Study','Homework','Revision','Project','Personal','Task'].map(s=>`<option ${s===(item.category||'Study')?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="field-row"><div class="field"><label for="f-date">Due date</label><input class="input" id="f-date" name="date" type="date" value="${escapeHTML(item.date||todayISO())}"></div><div class="field"><label for="f-time">Time (optional)</label><input class="input" id="f-time" name="time" type="time" value="${escapeHTML(item.time||'')}"></div></div><div class="field-row"><div class="field"><label for="f-priority">Priority</label><select class="input" id="f-priority" name="priority">${['low','medium','high'].map(s=>`<option value="${s}" ${(item.priority||'medium')===s?'selected':''}>${s[0].toUpperCase()+s.slice(1)}</option>`).join('')}</select></div><div class="field"><label for="f-duration">Estimated minutes</label><input class="input" id="f-duration" name="duration" type="number" min="0" max="1440" step="1" placeholder="30" value="${escapeHTML(item.duration??30)}"></div></div><div class="field"><label for="f-repeat">Repeat</label><select class="input" id="f-repeat" name="repeat">${[['','Does not repeat'],['daily','Every day'],['weekdays','Weekdays'],['weekly','Every week']].map(([v,l])=>`<option value="${v}" ${(item.repeat||'')===v?'selected':''}>${l}</option>`).join('')}</select></div><div class="field"><label for="f-exam">Linked exam (optional)</label><select class="input" id="f-exam" name="examId"><option value="">None</option>${data.exams.filter(e=>daysRemaining(e.date)>=0||e.id===item.examId).sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<option value="${escapeHTML(e.id)}" ${item.examId===e.id?'selected':''}>${escapeHTML(e.title)} · ${prettyDate(e.date)}</option>`).join('')}</select></div><div class="field"><label for="f-goal">Count toward a goal (optional)</label><select class="input" id="f-goal" name="goalId"><option value="">None</option>${data.goals.filter(g=>(g.kind==='tasks'&&g.month>=monthKeyOf(todayISO()))||g.id===item.goalId).sort((a,b)=>a.month.localeCompare(b.month)).map(g=>`<option value="${escapeHTML(g.id)}" ${item.goalId===g.id?'selected':''}>${escapeHTML(g.title)} · ${escapeHTML(monthName(g.month,{month:'short'}))}</option>`).join('')}</select></div><div class="field"><label for="f-subs">Checklist (optional, one item per line)</label><textarea class="input" id="f-subs" name="subs" rows="3" maxlength="700" placeholder="Read chapter 3&#10;Do the exercises">${escapeHTML((item.subtasks||[]).map(x=>x.t).join('\n'))}</textarea></div><div class="field"><label for="f-notes">Notes (optional)</label><textarea class="input" id="f-notes" name="notes" rows="2" maxlength="300" placeholder="Pages, links, details…">${escapeHTML(item.notes||'')}</textarea></div><div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>${item.id?'Save changes':'Add task'}</button></div>`,
     event:(item={})=>`<div class="field"><label for="f-title">Block title *</label><input class="input" id="f-title" name="title" required maxlength="100" placeholder="e.g. Study group" value="${escapeHTML(item.title||'')}"></div><div class="field-row"><div class="field"><label for="f-day">Day of week</label><select class="input" id="f-day" name="day">${dayNames.map((s,i)=>`<option value="${i}" ${Number(item.day??new Date().getDay())===i?'selected':''}>${s}</option>`).join('')}</select></div><div class="field"><label for="f-subject">Subject / area</label><select class="input" id="f-subject" name="subject">${subjOpts(item.subject||'Personal')}</select></div></div><div class="field-row"><div class="field"><label for="f-start">Start time</label><input class="input" id="f-start" name="start" type="time" required value="${escapeHTML(item.start||'16:00')}"></div><div class="field"><label for="f-end">End time</label><input class="input" id="f-end" name="end" type="time" required value="${escapeHTML(item.end||'17:00')}"></div></div><div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>${item.id?'Save block':'Add block'}</button></div>`,
     log:(item={})=>`<div class="field-row"><div class="field"><label for="f-subject">Subject</label><select class="input" id="f-subject" name="subject">${subjOpts(item.subject||$('#focus-subject').value,[])}</select></div><div class="field"><label for="f-minutes">Time studied (minutes) *</label><input class="input" id="f-minutes" name="minutes" type="number" min="1" max="1440" required value="${escapeHTML(item.minutes||25)}"></div></div><div class="field-row"><div class="field"><label for="f-date">Date</label><input class="input" id="f-date" name="date" type="date" required value="${escapeHTML(item.date||todayISO())}"></div><div class="field"><label for="f-note">Short note (optional)</label><input class="input" id="f-note" name="note" maxlength="100" placeholder="e.g. Functions exercises" value="${escapeHTML(item.note||'')}"></div></div><div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>${item.id?'Save changes':'Log session'}</button></div>`,
     exam:(item={})=>`<div class="field"><label for="f-title">Exam / deadline *</label><input class="input" id="f-title" name="title" required maxlength="100" placeholder="e.g. Physics test — mechanics" value="${escapeHTML(item.title||'')}"></div><div class="field-row"><div class="field"><label for="f-subject">Subject</label><select class="input" id="f-subject" name="subject">${subjOpts(item.subject,['General'])}</select></div><div class="field"><label for="f-date">Exam date *</label><input class="input" id="f-date" name="date" type="date" required value="${escapeHTML(item.date||dateOffset(7))}"></div></div><div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>Save exam</button></div>`
   };
   let modalType=null,editingId=null;
+
+  fields.goal=(item={})=>{
+    const cur=monthKeyOf(todayISO()),mk=item.month||cur,kind=item.kind||'count',months=[];
+    for(let i=-1;i<=6;i++)months.push(shiftMonth(cur,i));if(!months.includes(mk))months.push(mk);months.sort();
+    return '<div class="field"><label for="f-title">Goal *</label><input class="input" id="f-title" name="title" required maxlength="80" placeholder="e.g. Finish 20 hours of Maths" value="'+escapeHTML(item.title||'')+'"></div>'
+    +'<div class="field-row"><div class="field"><label for="f-kind">How do you track it?</label><select class="input" id="f-kind" name="kind">'+[['count','Count it myself'],['hours','Study hours (automatic)'],['tasks','Finish linked tasks (automatic)']].map(v=>'<option value="'+v[0]+'" '+(kind===v[0]?'selected':'')+'>'+v[1]+'</option>').join('')+'</select></div>'
+    +'<div class="field"><label for="f-month">Month</label><select class="input" id="f-month" name="month">'+months.map(k=>'<option value="'+k+'" '+(k===mk?'selected':'')+'>'+escapeHTML(monthName(k,{month:'long',year:'numeric'}))+'</option>').join('')+'</select></div></div>'
+    +'<div class="field-row" data-gk="count hours"><div class="field"><label for="f-target">Target</label><input class="input" id="f-target" name="target" type="number" min="0.5" max="9999" step="0.5" value="'+escapeHTML(item.target||5)+'"></div>'
+    +'<div class="field" data-gk="count"><label for="f-unit">Unit (optional)</label><input class="input" id="f-unit" name="unit" maxlength="20" placeholder="chapters, workouts…" value="'+escapeHTML(item.unit||'')+'"></div>'
+    +'<div class="field" data-gk="hours"><label for="f-gsubject">Subject</label><select class="input" id="f-gsubject" name="subject"><option value="">All subjects</option>'+data.subjects.map(x=>'<option '+(item.subject===x.name?'selected':'')+'>'+escapeHTML(x.name)+'</option>').join('')+'</select></div></div>'
+    +'<p class="tiny muted" style="margin:0" data-gk="count">Tap ＋1 on the goal each time you do it.</p>'
+    +'<p class="tiny muted" style="margin:0" data-gk="hours">Counts every minute you log or time with Focus in that month.</p>'
+    +'<p class="tiny muted" style="margin:0" data-gk="tasks">Pick this goal when you add or edit a task. The goal fills up as you tick those tasks off.</p>'
+    +'<div class="modal-actions"><button type="button" class="btn" data-close-modal>Cancel</button><button class="btn btn-primary" type="button" data-submit-modal>'+(item.id?'Save goal':'Add goal')+'</button></div>';
+  };
+  function goalFormSync(){const k=($('#f-kind')||{}).value;$$('#modal-form [data-gk]').forEach(el=>el.classList.toggle('hidden',!el.dataset.gk.split(' ').includes(k)));}
+  $('#modal-form').addEventListener('change',e=>{if(e.target&&e.target.id==='f-kind')goalFormSync();});
+
   let lastFocus=null;
-  function openModal(type,item={},forcedDay=null){lastFocus=document.activeElement;modalType=type;editingId=item.id||null;$('#modal-title').textContent=({task:item.id?'Edit task':'Add a task',event:item.id?'Edit time block':'Add a time block',log:item.id?'Edit study session':'Log a study session',exam:item.id?'Edit exam':'Add an exam'})[type]||'Add something';$('#modal-form').innerHTML=fields[type](forcedDay===null?item:{...item,day:forcedDay});$('#modal-backdrop').classList.add('open');setTimeout(()=>$('#modal-form input:not([type=hidden]),#modal-form select')?.focus(),40);}
+  function openModal(type,item={},forcedDay=null){lastFocus=document.activeElement;modalType=type;editingId=item.id||null;$('#modal-title').textContent=({task:item.id?'Edit task':'Add a task',event:item.id?'Edit time block':'Add a time block',log:item.id?'Edit study session':'Log a study session',exam:item.id?'Edit exam':'Add an exam',goal:item.id?'Edit goal':'Set a goal'})[type]||'Add something';$('#modal-form').innerHTML=fields[type](forcedDay===null?item:{...item,day:forcedDay});if(type==='goal')goalFormSync();$('#modal-backdrop').classList.add('open');setTimeout(()=>$('#modal-form input:not([type=hidden]),#modal-form select')?.focus(),40);}
   function closeModal(){if(confirmRes){const r=confirmRes;confirmRes=null;r(false);}$('#modal-backdrop').classList.remove('open');$('#modal-form').innerHTML='';modalType=null;editingId=null;if(lastFocus&&lastFocus.focus&&document.contains(lastFocus))lastFocus.focus();lastFocus=null;}
   function formObject(form){return Object.fromEntries(new FormData(form).entries());}
   function submitModal(event){if(event)event.preventDefault();if(!modalType)return;if(modalType==='confirm'){const r=confirmRes;confirmRes=null;if(r)r(true);closeModal();return;}const obj=formObject($('#modal-form'));if('title' in obj&&!String(obj.title).trim()){showToast('Please give it a title first.');$('#f-title')?.focus();return;}if(modalType==='exam'&&!obj.date){showToast('Pick a date for the exam.');return;}if(modalType==='event'&&(!obj.start||!obj.end)){showToast('Set a start and end time.');return;}
-    if(modalType==='task'){const task={id:editingId||uid(),title:obj.title.trim(),subject:obj.subject||'Personal',category:obj.category||'Task',date:obj.date||todayISO(),time:obj.time||'',priority:obj.priority||'medium',duration:Math.max(0,Number(obj.duration)||0),repeat:obj.repeat||'',examId:obj.examId||'',notes:(obj.notes||'').trim(),subtasks:parseSubs(obj.subs,editingId),spent:editingId?(data.tasks.find(t=>t.id===editingId)?.spent||0):0,doneDates:editingId?(data.tasks.find(t=>t.id===editingId)?.doneDates||[]):[],done:editingId?(data.tasks.find(t=>t.id===editingId)?.done||false):false,createdAt:editingId?(data.tasks.find(t=>t.id===editingId)?.createdAt||Date.now()):Date.now()};if(editingId)data.tasks=data.tasks.map(t=>t.id===editingId?task:t);else data.tasks.push(task);showToast(editingId?'Task updated':'Task added ♡');}
+    if(modalType==='task'){const task={id:editingId||uid(),title:obj.title.trim(),subject:obj.subject||'Personal',category:obj.category||'Task',date:obj.date||todayISO(),time:obj.time||'',priority:obj.priority||'medium',duration:Math.max(0,Number(obj.duration)||0),repeat:obj.repeat||'',examId:obj.examId||'',goalId:obj.goalId||'',notes:(obj.notes||'').trim(),subtasks:parseSubs(obj.subs,editingId),spent:editingId?(data.tasks.find(t=>t.id===editingId)?.spent||0):0,doneDates:editingId?(data.tasks.find(t=>t.id===editingId)?.doneDates||[]):[],done:editingId?(data.tasks.find(t=>t.id===editingId)?.done||false):false,createdAt:editingId?(data.tasks.find(t=>t.id===editingId)?.createdAt||Date.now()):Date.now()};if(editingId)data.tasks=data.tasks.map(t=>t.id===editingId?task:t);else data.tasks.push(task);showToast(editingId?'Task updated':'Task added ♡');}
     if(modalType==='event'){if(obj.end<=obj.start){showToast('End time should be later than start time.');return;}const e={id:editingId||uid(),title:obj.title.trim(),day:Number(obj.day),start:obj.start,end:obj.end,subject:obj.subject||'Personal'};if(editingId)data.events=data.events.map(x=>x.id===editingId?e:x);else data.events.push(e);showToast(editingId?'Time block updated':'Time block added ♡');}
     if(modalType==='log'){const lg={id:editingId||uid(),subject:obj.subject,minutes:Math.max(1,Number(obj.minutes)||1),date:obj.date||todayISO(),note:(obj.note||'').trim(),createdAt:editingId?(data.logs.find(x=>x.id===editingId)?.createdAt||Date.now()):Date.now()};if(editingId)data.logs=data.logs.map(x=>x.id===editingId?lg:x);else data.logs.push(lg);showToast(editingId?'Session updated':'Study session logged, nice work!');}
     if(modalType==='exam'){const ex={id:editingId||uid(),title:obj.title.trim(),subject:obj.subject||'General',date:obj.date};if(editingId)data.exams=data.exams.map(x=>x.id===editingId?ex:x);else data.exams.push(ex);showToast(editingId?'Exam updated':'Exam added to your countdowns.');}
+    if(modalType==='goal'){const old=editingId?data.goals.find(x=>x.id===editingId):null,kind=['count','hours','tasks'].includes(obj.kind)?obj.kind:'count';const g={id:editingId||uid(),title:obj.title.trim(),kind,target:kind==='tasks'?0:Math.max(.5,Math.min(9999,Number(obj.target)||1)),unit:kind==='count'?(obj.unit||'').trim().slice(0,20):'',subject:kind==='hours'?(obj.subject||''):'',month:/^\d{4}-\d{2}$/.test(obj.month||'')?obj.month:monthKeyOf(todayISO()),progress:old?(old.progress||0):0,hit:old?!!old.hit:false,carried:old?!!old.carried:false,createdAt:old?(old.createdAt||Date.now()):Date.now()};if(editingId)data.goals=data.goals.map(x=>x.id===editingId?g:x);else data.goals.push(g);showToast(editingId?'Goal updated':'Goal added. You’ve got this ♡');}
     saveData();closeModal();renderAll();}
   $('#modal-form').addEventListener('submit',submitModal);document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-submit-modal]'))submitModal();});$('#modal-form').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();submitModal();}});
   let confirmRes=null;
@@ -835,6 +1065,14 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
     const action=e.target.closest('[data-action]');if(!action)return;const id=action.dataset.id;
     if(action.dataset.action==='new-task'){openModal('task');return;}if(action.dataset.action==='new-exam'){openModal('exam');return;}if(action.dataset.action==='new-log'){openModal('log');return;}if(action.dataset.action==='new-event'){openModal('event',{},Number(action.dataset.day));return;}
     if(action.dataset.action==='new-task-day'){openModal('task',{date:calSel});return;}
+    if(action.dataset.action==='new-goal'){openModal('goal',{month:activeView==='calendar'?calKey():monthKeyOf(todayISO())});return;}
+    if(action.dataset.action==='edit-goal'){const g=data.goals.find(x=>x.id===id);if(g)openModal('goal',g);return;}
+    if(action.dataset.action==='delete-goal'){removeItem('goals',id,'Goal');return;}
+    if(action.dataset.action==='goal-inc'||action.dataset.action==='goal-dec'){const g=data.goals.find(x=>x.id===id);if(!g)return;const d=action.dataset.action==='goal-inc'?1:-1;g.progress=Math.max(0,(+g.progress||0)+d);saveData();renderAll();if(d>0&&!goalStat(g).done)say('task');return;}
+    if(action.dataset.action==='goal-log'){const g=data.goals.find(x=>x.id===id);if(g)openModal('log',{date:gDate(g),...(g.subject?{subject:g.subject}:{})});return;}
+    if(action.dataset.action==='goal-task'){const g=data.goals.find(x=>x.id===id);if(g)openModal('task',{goalId:g.id,date:gDate(g),...(g.subject?{subject:g.subject}:{})});return;}
+    if(action.dataset.action==='goal-carry'){const g=data.goals.find(x=>x.id===id);if(!g)return;const s=goalStat(g),nk=shiftMonth(g.month,1),left=Math.max(.5,Math.round(s.rem*10)/10);data.goals.push({...g,id:uid(),month:nk,progress:0,hit:false,carried:false,target:left,createdAt:Date.now()});g.carried=true;saveData();renderAll();showToast('Carried '+fmtN(left)+(s.kind==='hours'?' h':'')+' into '+monthName(nk)+' ♡');return;}
+
     if(action.dataset.action==='toggle-task'){const iso=action.dataset.iso||todayISO();let now=false;data.tasks=data.tasks.map(t=>{if(t.id!==id)return t;if(t.repeat){const s=new Set(t.doneDates||[]);if(s.has(iso))s.delete(iso);else{s.add(iso);now=true;}return {...t,doneDates:[...s].sort().slice(-400)};}now=!t.done;return {...t,done:!t.done};});saveData();renderAll();if(now)praise(iso);return;}
     if(action.dataset.action==='move-today'){data.tasks=data.tasks.map(t=>t.id===id?{...t,date:todayISO()}:t);saveData();renderAll();showToast('Moved to today ♡');return;}
     if(action.dataset.action==='edit-exam'){const x=data.exams.find(v=>v.id===id);if(x)openModal('exam',x);return;}
@@ -872,7 +1110,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   $('#welcome').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='wl-name'){e.preventDefault();$('#wl-name').blur();}});
   $('#save-profile').addEventListener('click',()=>{data.profile.name=$('#display-name').value.trim();saveData();renderHeader();showToast('Preferences saved ♡');});$('#display-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#save-profile').click();}});
   function exportData(){data.meta.lastBackup=new Date().toISOString();data.meta.snoozeUntil=null;saveData();const payload={app:'My Planner Bloom',version:1,exportedAt:new Date().toISOString(),data};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`my-planner-backup-${todayISO()}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast('Backup exported. Keep it somewhere safe!');renderBackupInfo();}
-  $('#export-data').addEventListener('click',exportData);$('#import-trigger').addEventListener('click',()=>$('#import-file').click());$('#import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const incoming=parsed.data||parsed;if(!incoming||!Array.isArray(incoming.tasks)||!Array.isArray(incoming.events)||!Array.isArray(incoming.logs)||!Array.isArray(incoming.exams))throw new Error('That file does not look like a My Planner backup.');if(!await askConfirm('Replace the current planner data with this backup? Export the current data first if needed.','Yes, replace'))return;const base=defaultData();data={...base,...incoming,meta:{...base.meta,...(incoming.meta&&typeof incoming.meta==='object'?incoming.meta:{})},journal:incoming.journal&&typeof incoming.journal==='object'&&!Array.isArray(incoming.journal)?incoming.journal:{},profile:{...base.profile,...(incoming.profile||{})},tasks:incoming.tasks,events:incoming.events,subjects:Array.isArray(incoming.subjects)&&incoming.subjects.length?incoming.subjects:base.subjects,logs:incoming.logs,exams:incoming.exams,notes:typeof incoming.notes==='string'?incoming.notes:''};saveData();$('#display-name').value=data.profile.name||'';renderAll();showToast('Backup restored successfully.');}catch(err){showToast(err.message||'Could not import that backup.');}finally{e.target.value='';}});
+  $('#export-data').addEventListener('click',exportData);$('#import-trigger').addEventListener('click',()=>$('#import-file').click());$('#import-file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const incoming=parsed.data||parsed;if(!incoming||!Array.isArray(incoming.tasks)||!Array.isArray(incoming.events)||!Array.isArray(incoming.logs)||!Array.isArray(incoming.exams))throw new Error('That file does not look like a My Planner backup.');if(!await askConfirm('Replace the current planner data with this backup? Export the current data first if needed.','Yes, replace'))return;const base=defaultData();data={...base,...incoming,meta:{...base.meta,...(incoming.meta&&typeof incoming.meta==='object'?incoming.meta:{})},journal:incoming.journal&&typeof incoming.journal==='object'&&!Array.isArray(incoming.journal)?incoming.journal:{},profile:{...base.profile,...(incoming.profile||{})},tasks:incoming.tasks,events:incoming.events,subjects:Array.isArray(incoming.subjects)&&incoming.subjects.length?incoming.subjects:base.subjects,logs:incoming.logs,exams:incoming.exams,goals:Array.isArray(incoming.goals)?incoming.goals:[],notes:typeof incoming.notes==='string'?incoming.notes:''};saveData();$('#display-name').value=data.profile.name||'';renderAll();showToast('Backup restored successfully.');}catch(err){showToast(err.message||'Could not import that backup.');}finally{e.target.value='';}});
   $('#reset-data').addEventListener('click',async()=>{if(!await askConfirm('Reset ALL planner data in this browser? This deletes your tasks, study logs, exams and notes, and cannot be undone without a backup.','Yes, reset everything'))return;data=defaultData();saveData();try{localStorage.removeItem('myPlannerBloom.timer');}catch(e){}$('#display-name').value='';$('#task-search').value='';$('#task-filter').value='all';renderAll();showToast('Your planner is fresh again.');});
 
   // Focus timer: tracks an end timestamp so it stays accurate even when the tab is in the background.
@@ -938,7 +1176,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   const BGS=[['none','Plain'],['aurora','Aurora'],['sunset','Sunset'],['dots','Dots'],['grid','Grid'],['stripes','Stripes']];
   const FXS=[['none','None','—'],['petals','Floating','🌸'],['sparkles','Sparkles','✦'],['bubbles','Bubbles','◯'],['rain','Rain','╎']];
   const PET={'':'🌸',lav:'🦋',peach:'🍑',mint:'🍃',sky:'☁️',honey:'🐝',cocoa:'☕',mid:'✨'};
-  const getBg=()=>data.profile.bg??'aurora', getFx=()=>data.profile.fx??'petals';
+  const getBg=()=>data.profile.bg??'aurora', getFx=()=>data.profile.fx??'none';
   function renderFx(){
     const r=document.documentElement,bg=getBg(),fx=getFx(); r.dataset.bg=bg; r.dataset.fx=fx;
     let l=$('#bgl'); if(!l){l=document.createElement('div');l.id='bgl';l.setAttribute('aria-hidden','true');document.body.prepend(l);}
@@ -1238,17 +1476,88 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   function renderFocusTasks(){const s=$('#focus-task');if(!s)return;const prev=s.value,iso=todayISO(),list=data.tasks.filter(t=>(occursOn(t,iso)||(!t.repeat&&t.date&&t.date<iso))&&!isDone(t,rowIso(t)));s.innerHTML='<option value="">No specific task</option>'+list.map(t=>`<option value="${escapeHTML(t.id)}">${escapeHTML(t.title)}</option>`).join('');if(list.some(t=>t.id===prev))s.value=prev;}
   $('#focus-task').addEventListener('change',e=>{const t=data.tasks.find(x=>x.id===e.target.value);if(t&&data.subjects.some(s=>s.name===t.subject))$('#focus-subject').value=t.subject;persistTimer();});
   // calm sounds (generated in the browser, no files needed)
-  let ac=null,snd=null;const K={rain:.3,waves:.7,hum:.14},vol=()=>Number($('#snd-vol').value)/100;
-  const noise=(c,brown)=>{const n=c.sampleRate*3,b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<n;i++){const w=Math.random()*2-1;if(brown){l=(l+.02*w)/1.02;d[i]=l*3.5;}else d[i]=w;}return b;};
-  function stopSound(){if(snd){try{snd.stop();}catch(e){}snd=null;}}
+  let ac=null,snd=null;const K={rain:1.5,waves:1.7,forest:2.5,fire:1.3,hum:1,brown:.77},vol=()=>Math.pow(Number($('#snd-vol').value)/100,1.5);
+  /* --- calm sound engine: everything is generated live, no audio files --- */
+  const nbCache=new WeakMap();
+  function nbuf(c,type){let m=nbCache.get(c);if(!m){m={};nbCache.set(c,m);}if(m[type])return m[type];
+    const n=Math.floor(c.sampleRate*6),b=c.createBuffer(2,n,c.sampleRate);
+    for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);let l=0,b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+      for(let i=0;i<n;i++){const w=Math.random()*2-1;
+        if(type==='brown'){l=(l+.02*w)/1.02;d[i]=l*3.5;}
+        else if(type==='pink'){b0=.99886*b0+w*.0555179;b1=.99332*b1+w*.0750759;b2=.969*b2+w*.153852;b3=.8665*b3+w*.3104856;b4=.55*b4+w*.5329522;b5=-.7616*b5-w*.016898;d[i]=(b0+b1+b2+b3+b4+b5+b6+w*.5362)*.11;b6=w*.115926;}
+        else d[i]=w;}}
+    const f=Math.floor(c.sampleRate*.5);for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);for(let i=0;i<f;i++){const t=i/f;d[i]=d[i]*t+d[n-f+i]*(1-t);}}
+    return m[type]=b;}
+  function impulse(c,sec,decay){const n=Math.floor(c.sampleRate*sec),b=c.createBuffer(2,n,c.sampleRate);for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,decay);}return b;}
+  function buildSound(kind,c,mix){
+    const nodes=[],tids=[];let dead=false;
+    const add=n=>{nodes.push(n);return n;};
+    const mkpan=v=>{if(c.createStereoPanner){const p=c.createStereoPanner();p.pan.value=Math.max(-1,Math.min(1,v));return p;}return c.createGain();};
+    const nsrc=type=>{const s=add(c.createBufferSource());s.buffer=nbuf(c,type);s.loop=true;s.loopEnd=(s.buffer.length-Math.floor(c.sampleRate*.5))/c.sampleRate;s.start(0,Math.random()*3);return s;};
+    const filt=(type,f,q)=>{const x=c.createBiquadFilter();x.type=type;x.frequency.value=f;if(q!=null)x.Q.value=q;return x;};
+    const gain=v=>{const x=c.createGain();x.gain.value=v;return x;};
+    const lfo=(hz,depth,param)=>{const o=add(c.createOscillator()),d=c.createGain();o.frequency.value=hz;d.gain.value=depth;o.connect(d);d.connect(param);o.start();return o;};
+    const chain=(src,...ns)=>{let p=src;ns.forEach(n=>{p.connect(n);p=n;});return p;};
+    const loop=(fn,a,bb)=>{const i=tids.length;tids.push(0);const go=()=>{if(dead)return;try{fn();}catch(e){}tids[i]=setTimeout(go,a+Math.random()*(bb-a));};go();};
+    const burst=(o)=>{const s=c.createBufferSource();s.buffer=nbuf(c,'white');const bp=filt('bandpass',o.f,o.q),e=gain(0),p=mkpan(o.pan||0),t=c.currentTime;e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(o.gain,t+.006);e.gain.exponentialRampToValueAtTime(.0001,t+o.dur);chain(s,bp,e,p,mix);s.start(t,Math.random()*4,o.dur+.05);};
+    const blip=(f,delay,pan,g)=>{const o=c.createOscillator(),e=gain(0),p=mkpan(pan),t=c.currentTime+delay;o.frequency.value=f;e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(g,t+.008);e.gain.exponentialRampToValueAtTime(.0001,t+.045);chain(o,e,p,mix);o.start(t);o.stop(t+.06);};
+    if(kind==='rain'){
+      const wash=gain(.5);chain(nsrc('pink'),filt('highpass',300),filt('lowpass',5000),wash,mix);lfo(.04,.05,wash.gain);
+      const patter=gain(.2);chain(nsrc('white'),filt('bandpass',2800,.6),filt('lowpass',6000),patter,mix);
+      chain(nsrc('white'),filt('lowpass',2),gain(14),patter.gain);
+      chain(nsrc('brown'),filt('lowpass',140),gain(.18),mix);
+      loop(()=>burst({f:1500+Math.random()*3000,q:.8,dur:.03+Math.random()*.05,gain:.02+Math.random()*.05,pan:Math.random()*2-1}),16,60);
+      loop(()=>{const o=c.createOscillator(),e=gain(0),p=mkpan(Math.random()*1.6-.8),t=c.currentTime,f=1100+Math.random()*900;o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*.55,t+.09);e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(.01+Math.random()*.01,t+.006);e.gain.exponentialRampToValueAtTime(.0001,t+.14);chain(o,e,p,mix);o.start(t);o.stop(t+.16);},900,3200);
+    }else if(kind==='waves'){
+      chain(nsrc('pink'),filt('lowpass',420),gain(.09),mix);
+      chain(nsrc('brown'),filt('lowpass',100),gain(.12),mix);
+      const wave=(pan,delay)=>{
+        const lp=filt('lowpass',350,.5),g=gain(.04),fz=gain(0);
+        chain(nsrc('pink'),lp,g,mkpan(pan),mix);chain(nsrc('white'),filt('highpass',2200),fz,mkpan(pan*.6),mix);
+        const slot=tids.length;tids.push(0);let next=c.currentTime+delay;
+        const sched=()=>{if(dead)return;
+          const t=Math.max(c.currentTime+.05,next),rise=3.2+Math.random()*2,fall=4.5+Math.random()*3,peak=.3+Math.random()*.25;
+          [g.gain,lp.frequency,fz.gain].forEach(p=>p.cancelScheduledValues(t));
+          g.gain.setValueAtTime(.04,t);g.gain.linearRampToValueAtTime(peak,t+rise);g.gain.setTargetAtTime(.04,t+rise,fall/3);
+          lp.frequency.setValueAtTime(350,t);lp.frequency.linearRampToValueAtTime(1700,t+rise);lp.frequency.setTargetAtTime(350,t+rise,fall/3);
+          fz.gain.setValueAtTime(0,t+rise*.75);fz.gain.linearRampToValueAtTime(peak*.1,t+rise+.25);fz.gain.setTargetAtTime(0,t+rise+.25,fall/4);
+          next=t+(rise+fall)*.9+Math.random()*2;
+          tids[slot]=setTimeout(sched,Math.max(200,(next-c.currentTime-1)*1000));};
+        sched();};
+      wave(-.5,0);wave(.5,4.5);
+    }else if(kind==='forest'){
+      const wl=filt('lowpass',600,.3),wg=gain(.3);lfo(.045,300,wl.frequency);lfo(.07,.1,wg.gain);chain(nsrc('pink'),wl,wg,mix);
+      const lg=gain(.02);lfo(.17,.012,lg.gain);chain(nsrc('white'),filt('highpass',4000),lg,mix);
+      const cricket=(f,pan,ms)=>{const o=add(c.createOscillator()),pu=add(c.createOscillator()),am=gain(.5),pd=gain(.5),gate=gain(0),out=gain(.02);
+        o.frequency.value=f;pu.frequency.value=26+Math.random()*6;pu.connect(pd);pd.connect(am.gain);chain(o,am,gate,out,mkpan(pan),mix);o.start();pu.start();
+        loop(()=>{if(Math.random()<.12)return;const t=c.currentTime+.02;gate.gain.setValueAtTime(0,t);gate.gain.linearRampToValueAtTime(1,t+.012);gate.gain.setValueAtTime(1,t+.17);gate.gain.linearRampToValueAtTime(0,t+.2);},ms,ms*1.12);};
+      cricket(4200,-.6,640);cricket(4550,.5,560);cricket(3900,.1,720);
+      const owl=()=>{const t=c.currentTime+.05,o=add(c.createOscillator()),e=gain(0),lp=filt('lowpass',650),p=mkpan(Math.random()*1.4-.7),f=370+Math.random()*50;o.type='sine';e.gain.setValueAtTime(0,t);
+        [[0,.5],[.95,.32],[1.42,.6]].forEach(n=>{const a=t+n[0],b2=a+n[1];o.frequency.setValueAtTime(f,a);o.frequency.exponentialRampToValueAtTime(f*.9,b2);e.gain.setValueAtTime(0,a);e.gain.linearRampToValueAtTime(.05,a+.1);e.gain.setValueAtTime(.05,b2-.12);e.gain.linearRampToValueAtTime(0,b2);});
+        chain(o,e,lp,p,mix);o.start(t);o.stop(t+2.4);};
+      loop(owl,16000,38000);
+    }else if(kind==='fire'){
+      chain(nsrc('brown'),filt('lowpass',500),gain(.55),mix);
+      const fl=gain(.12);lfo(.31,.05,fl.gain);lfo(.9,.03,fl.gain);chain(nsrc('pink'),filt('bandpass',900,.5),fl,mix);
+      loop(()=>{const n=Math.random()<.18?3+Math.floor(Math.random()*3):1;for(let k=0;k<n;k++)setTimeout(()=>{if(!dead)burst({f:800+Math.random()*4200,q:1.5,dur:.008+Math.random()*.025,gain:.08+Math.random()*.27,pan:Math.random()*2-1});},k*15);if(Math.random()<.06)burst({f:300+Math.random()*400,q:2,dur:.09,gain:.4,pan:Math.random()*1.2-.6});},60,280);
+    }else if(kind==='hum'){
+      const lp=filt('lowpass',800,.4),pg=gain(.5);lfo(.06,300,lp.frequency);lfo(.1,.12,pg.gain);
+      [[110,'sine',.5],[164.81,'sine',.32],[220,'triangle',.18],[277.18,'sine',.1],[329.63,'sine',.08]].forEach(p=>[-7,7].forEach(ct=>{const o=add(c.createOscillator()),og=gain(p[2]*.5);o.type=p[1];o.frequency.value=p[0];o.detune.value=ct;o.connect(og);og.connect(lp);o.start();}));
+      lp.connect(pg);pg.connect(gain(.6)).connect(mix);const cv=c.createConvolver();cv.buffer=impulse(c,3.5,2.5);pg.connect(cv);cv.connect(gain(.5)).connect(mix);
+    }else{
+      const bl=filt('lowpass',800,.4),bg=gain(.9);lfo(.05,260,bl.frequency);lfo(.07,.12,bg.gain);chain(nsrc('brown'),bl,bg,mix);
+      chain(nsrc('pink'),filt('lowpass',320),gain(.14),mix);
+    }
+    return {nodes,stop:()=>{dead=true;tids.forEach(clearTimeout);}};
+  }
+  function stopSound(){if(!snd)return;const o=snd;snd=null;try{o.part.stop();const t=ac.currentTime;o.g.gain.cancelScheduledValues(t);o.g.gain.setTargetAtTime(0,t,.15);}catch(e){}setTimeout(()=>{o.part.nodes.forEach(n=>{try{n.stop();}catch(e){}});try{o.g.disconnect();o.mix.disconnect();o.tone.disconnect();o.comp.disconnect();}catch(e){}},1000);}
   function playSound(kind){stopSound();$$('#snd-seg .seg-btn').forEach(b=>{b.classList.toggle('on',b.dataset.snd===kind);b.setAttribute('aria-pressed',b.dataset.snd===kind);});if(kind==='off')return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC){showToast('Sound is not supported in this browser.');return;}ac=ac||new AC();if(ac.state==='suspended')ac.resume();
-    const g=ac.createGain();g.gain.value=vol()*K[kind];g.connect(ac.destination);const nodes=[];let lfo=null;
-    if(kind==='hum'){[110,165,220].forEach((hz,i)=>{const o=ac.createOscillator(),og=ac.createGain();o.frequency.value=hz;og.gain.value=[.6,.3,.2][i];o.connect(og);og.connect(g);o.start();nodes.push(o);});}
-    else{const s=ac.createBufferSource();s.buffer=noise(ac,kind==='waves');s.loop=true;const f=ac.createBiquadFilter();if(kind==='rain'){f.type='bandpass';f.frequency.value=2200;f.Q.value=.5;}else{f.type='lowpass';f.frequency.value=450;const l=ac.createOscillator();lfo=ac.createGain();lfo.gain.value=vol()*K.waves*.6;l.frequency.value=.11;l.connect(lfo);lfo.connect(g.gain);l.start();nodes.push(l);}s.connect(f);f.connect(g);s.start();nodes.push(s);}
-    snd={g,lfo,kind,stop:()=>{nodes.forEach(n=>{try{n.stop();}catch(e){}});g.disconnect();}};}
+    const mix=ac.createGain(),comp=ac.createDynamicsCompressor(),g=ac.createGain();comp.threshold.value=-20;comp.ratio.value=4;g.gain.value=0;const tone=ac.createBiquadFilter();tone.type='lowpass';tone.frequency.value=7500;tone.Q.value=.3;mix.connect(tone);tone.connect(comp);comp.connect(g);g.connect(ac.destination);
+    const part=buildSound(kind,ac,mix);g.gain.setTargetAtTime(vol()*K[kind],ac.currentTime,.6);
+    snd={g,mix,comp,tone,part,kind};}
   $$('#snd-seg [data-snd]').forEach(b=>b.addEventListener('click',()=>playSound(b.dataset.snd)));
   $('#snd-vol').value=data.profile.sndVol??40;
-  $('#snd-vol').addEventListener('input',()=>{data.profile.sndVol=Number($('#snd-vol').value);if(snd){snd.g.gain.value=vol()*K[snd.kind];if(snd.lfo)snd.lfo.gain.value=vol()*K.waves*.6;}});
+  $('#snd-vol').addEventListener('input',()=>{data.profile.sndVol=Number($('#snd-vol').value);if(snd)snd.g.gain.setTargetAtTime(vol()*K[snd.kind],ac.currentTime,.05);});
   $('#snd-vol').addEventListener('change',saveData);
   // daily reminder (fires while the app is open)
   const remCfg=()=>data.profile.remind=Object.assign({on:false,time:'18:00',last:''},data.profile.remind||{});
@@ -1270,7 +1579,7 @@ textarea.notes-area{font-family:"Iowan Old Style","Palatino Linotype",Georgia,se
   const saveSyncState=()=>{try{localStorage.setItem(SYNC_KEY,JSON.stringify(syncState));}catch(e){}};
   let sb=null,sbUser=null,pushTimer=null,syncing=false,syncPaused=false;
   const setSyncUI=(text,chip)=>{const a=$('#sync-status'),c=$('#sync-chip-text');if(a)a.textContent=text;if(c)c.textContent=chip||(sbUser?'Synced':'Sign in');const i=$('#sync-in'),o=$('#sync-out');if(i)i.hidden=!sbUser;if(o)o.hidden=!!sbUser;if(i)i.style.display=sbUser?'flex':'none';};
-  const weight=d=>((d.tasks||[]).length+(d.events||[]).length+(d.exams||[]).length+(d.logs||[]).length+Object.keys(d.journal||{}).length+Object.keys((d.care&&d.care.log)||{}).length);
+  const weight=d=>((d.tasks||[]).length+(d.events||[]).length+(d.exams||[]).length+(d.goals||[]).length+(d.logs||[]).length+Object.keys(d.journal||{}).length+Object.keys((d.care&&d.care.log)||{}).length);
   const hasRealData=()=>{const d=data;return weight(d)>0||(d.notes&&d.notes.trim());};
   const SNAP_KEY='myPlannerBloom.snaps';
   const getSnaps=()=>{try{return JSON.parse(localStorage.getItem(SNAP_KEY)||'[]');}catch(e){return [];}};
